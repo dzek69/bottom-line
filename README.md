@@ -12,8 +12,9 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 `bottom-line` aims to:
 - cover only most typical use cases,
 - add useful methods that are missing in lodash,
+- not include non-useful/rare methods that are present in lodash,
 - not being 100% compatible replacement for lodash/underscore, but keeping most of behavior identical,
-- not being a polyfill (no `map`/`forEach` etc.),
+- not being a "polyfill" (no `map`/`forEach` etc.),
 - not being inconsistent or trying to guess user intentions (lodash does that, see tests for `get`),
 - perform fast and have code size small.
 
@@ -21,17 +22,24 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 
 Underscore was taken. Low-dash (lodash) was taken. How else could I name a line on the bottom?
 
-PS. Underscore character is often used for utils JS libraries. Dollar is taken for jQuery and other DOM related
+PS. Underscore character is often used for utils JS libraries. Dollar is taken by jQuery and other DOM related
 libraries. Others easy to type on standard layout keyboard, non a-z characters aren't valid JS variable name starters.
 So I followed the rest and personally I am going to use my library as `_`.
 
 ## Supported methods
 
 - get
-- getMultiple
+- getMultiple (exclusive)
 - isEmpty
 - last
-- mapObject
+- mapObject (exclusive)
+
+Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
+want to add. 
+
+## Methods to be supported
+
+(TODO)
 
 ## Features
 

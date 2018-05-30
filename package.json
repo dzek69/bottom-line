@@ -1,7 +1,7 @@
 {
   "name": "bottom-line-utils",
   "version": "0.1.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",

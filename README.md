@@ -6,6 +6,42 @@ A tiny and fast lodash-inspired utils library.
 
 Documentation can be found here: [bottom-line documentation](https://dzek69.github.io/bottom-line).
 
+## Installing
+
+`npm install bottom-line-utils`
+
+## Usage
+
+Import just desired method (recommended):
+```javascript
+import get from "bottom-line-utils/get";
+``` 
+
+Import just desired method (not recommended, tree shaking is harder):
+```javascript
+import { get } from "bottom-line-utils";
+``` 
+
+Import whole library:
+```javascript
+import _ from "bottom-line-utils";
+``` 
+
+Import just desired method transpiled to ES5 (but you should transpile the library yourself if really needed):
+```javascript
+import get from "bottom-line-utils/dist/get";
+``` 
+
+Import just desired method transpiled to ES5 (not recommended way):
+```javascript
+import { get } from "bottom-line-utils/dist";
+``` 
+
+Import whole library transpiled to ES5:
+```javascript
+import get from "bottom-line-utils/dist";
+``` 
+
 ## Motivation
 
 Lodash complexity that causes big bundle sizes just for using single function. Lodash is trying to cover each possible

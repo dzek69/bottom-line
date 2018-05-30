@@ -1,6 +1,7 @@
 /.idea/
 /build-scripts/
 /test/
+/src/
 
 /.babelrc
 /yarn.lock

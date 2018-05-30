@@ -1,6 +1,6 @@
 {
   "name": "bottom-line",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "src/index.js",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
@@ -9,7 +9,8 @@
     "test": "NODE_ENV=testing mocha 'src/**/*.spec.js'",
     "docs": "node build-scripts/docs && jsdoc src/* README.md -t node_modules/docdash -d ./docs -u ./tutorials",
     "transpile": "node build-scripts/transpile && babel src -d dist --ignore spec.js",
-    "prepublishOnly": "npm run docs && npm run transpile"
+    "prepublishOnly": "node build-scripts/prepublish && npm run docs && npm run transpile",
+    "postpublish": "node build-scripts/postpublish"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -52,6 +52,7 @@ want to add.
 
 - make a list of important methods to include in this library
 - prepare a build script to mess-free development and easy importing like `import _get from "bottom-line/get"`
+- consider making all methods non-crashy, as some already are
 
 ## License
 

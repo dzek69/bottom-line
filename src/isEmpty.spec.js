@@ -73,7 +73,7 @@ describe("isEmpty", () => {
         _isEmpty(holeyArray).must.be.false();
     });
 
-    it("works with arguments", () => {
+    it("works with arguments, behaves like lodash", () => {
         isEmpty(emptyArgs).must.be.true();
         _isEmpty(emptyArgs).must.be.true();
 
@@ -81,7 +81,7 @@ describe("isEmpty", () => {
         _isEmpty(filledArgs).must.be.false();
     });
 
-    it("works with Buffers", () => {
+    it("works with Buffers, behaves like lodash", () => {
         isEmpty(emptyBuffer).must.be.true();
         _isEmpty(emptyBuffer).must.be.true();
 
@@ -89,7 +89,7 @@ describe("isEmpty", () => {
         _isEmpty(filledBuffer).must.be.false();
     });
 
-    it("works with objects", () => {
+    it("works with objects, behaves like lodash", () => {
         isEmpty(emptyObject).must.be.true();
         _isEmpty(emptyObject).must.be.true();
 
@@ -103,11 +103,26 @@ describe("isEmpty", () => {
         _isEmpty(inheritedObject).must.be.true();
     });
 
-    it("works with typed arrays", () => {
+    it("works with typed arrays, behaves like lodash", () => {
         isEmpty(emptyTypedArray).must.be.true();
         _isEmpty(emptyTypedArray).must.be.true();
 
         isEmpty(filledTypedArray).must.be.false();
         _isEmpty(filledTypedArray).must.be.false();
+    });
+
+    it("returns true for primitives and nil, behaves like lodash", () => {
+        isEmpty(null).must.be.true();
+        isEmpty(undefined).must.be.true();
+        isEmpty(0).must.be.true();
+        isEmpty(true).must.be.true();
+        isEmpty(Infinity).must.be.true();
+        isEmpty(() => {}).must.be.true();
+        _isEmpty(null).must.be.true();
+        _isEmpty(undefined).must.be.true();
+        _isEmpty(0).must.be.true();
+        _isEmpty(true).must.be.true();
+        _isEmpty(Infinity).must.be.true();
+        _isEmpty(() => {}).must.be.true();
     });
 });

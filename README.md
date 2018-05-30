@@ -2,6 +2,10 @@
 
 A tiny and fast lodash-inspired utils library.
 
+## Documentation
+
+Documentation can be found here: [bottom-line documentation](https://dzek69.github.io/bottom-line).
+
 ## Motivation
 
 Lodash complexity that causes big bundle sizes just for using single function. Lodash is trying to cover each possible
@@ -39,6 +43,8 @@ want to add.
 
 ## Methods to be supported
 
+- pick
+- omit
 (TODO)
 
 ## Features

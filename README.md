@@ -17,7 +17,8 @@ Import just desired method (recommended):
 import get from "bottom-line-utils/get";
 ``` 
 
-Import just desired method (not recommended, tree shaking is harder):
+Import just desired method (not recommended, tree shaking is harder, but if you're sure about your bundler it's cleaner
+to import few methods this way):
 ```javascript
 import { get } from "bottom-line-utils";
 ``` 
@@ -39,7 +40,7 @@ import { get } from "bottom-line-utils/dist";
 
 Import whole library transpiled to ES5:
 ```javascript
-import get from "bottom-line-utils/dist";
+import _ from "bottom-line-utils/dist";
 ``` 
 
 ## Motivation
@@ -61,6 +62,10 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 ## Name
 
 Underscore was taken. Low-dash (lodash) was taken. How else could I name a line on the bottom?
+
+Oh, about npm name. `bottom-line` is free. But NPM encourages to use it just until you try to publish the package. Then
+it says the name is too similar to another package (not telling which one). It happens to me way to often :( I've run
+out of ideas to I just went with `bottom-line-utils`.
 
 PS. Underscore character is often used for utils JS libraries. Dollar is taken by jQuery and other DOM related
 libraries. Others easy to type on standard layout keyboard, non a-z characters aren't valid JS variable name starters.

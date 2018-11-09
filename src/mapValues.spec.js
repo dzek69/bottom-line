@@ -120,4 +120,37 @@ describe("mapValues", () => {
         (() => _mapValues(null, square)).must.not.throw();
         (() => _mapValues(undefined, square)).must.not.throw();
     });
+
+    it("calls given method once per property", () => {
+        {
+            const source = {
+                aaa: false,
+            };
+
+            let calls = 0;
+
+            mapValues(source, (value) => {
+                calls++;
+                return value;
+            });
+
+            calls.must.equal(1);
+        }
+
+        {
+            const source = {
+                aaa: false,
+                title: "albert eats flowers",
+            };
+
+            let calls = 0;
+
+            mapValues(source, (value) => {
+                calls++;
+                return value;
+            });
+
+            calls.must.equal(2);
+        }
+    });
 });

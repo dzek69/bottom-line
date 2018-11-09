@@ -32,11 +32,12 @@ const mapValues = (source, fn) => {
     return keys.reduce((result, key) => {
         const value = fn(source[key], key);
         if (value !== mapValues.REMOVE) {
-            result[key] = fn(source[key], key);
+            result[key] = value;
         }
         return result;
     }, Array.isArray(source) ? [] : {});
 };
+
 /**
  * Value that denotes that property should be removed
  *

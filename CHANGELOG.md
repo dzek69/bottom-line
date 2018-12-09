@@ -4,10 +4,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [UNRELEASED]
+### Fixed
+- missing labels in `set` tests
+- disabled removing unused labels in tests
+### Changed
+- improved one `set` test
+
+
+## [0.2.0] 2018-12-09
 ### Added
 - `set` function
 - @todo for get/set methods, that should test and support correctly Sets, Maps, etc.
 - dev stuff: linter, editorconfig
+
 ### Changed
 - upgraded library template
 - switched code to es modules

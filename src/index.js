@@ -4,6 +4,7 @@ import isEmpty from "./isEmpty";
 import last from "./last";
 import mapValues from "./mapValues";
 import set from "./set";
+import setImmutable from "./setImmutable";
 
 export {
     get,
@@ -12,4 +13,5 @@ export {
     last,
     mapValues,
     set,
+    setImmutable,
 };

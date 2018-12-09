@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 ( nothing yet )
 
+## [0.3.1] - 2018-12-09
+### Fixed
+- added missing export of `setImmutable` to index
+
 ## [0.3.0] - 2018-12-09
 ### Fixed
 - missing labels in `set` tests

@@ -79,6 +79,7 @@ So I followed the rest and personally I am going to use my library as `_`.
 - last
 - mapValues
 - set
+- setImmutable
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add. 

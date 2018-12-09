@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - disabled removing unused labels in tests
 ### Changed
 - improved one `set` test
-
+### Added
+- `setImmutable` method
 
 ## [0.2.0] 2018-12-09
 ### Added

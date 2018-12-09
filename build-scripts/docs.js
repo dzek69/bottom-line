@@ -1,17 +1,24 @@
-const fs = require("fs");
-const mkdir = require("mkdirp-promise");
-const rmdir = require("./utils/rmdir");
+const { ensureDir, remove, copy } = require("fs-extra");
+const { additionalTutorialFiles } = require("./docs.config");
+const { prepareCopyList } = require("./docs/utils");
 
 (async () => {
-    const tasks = [
-        rmdir("docs"),
-        mkdir("tutorials"),
-    ];
-
     try {
+        const tasks = [
+            remove("docs"),
+            ensureDir("tutorials"),
+        ];
+
         await Promise.all(tasks);
-        // @todo make it a list, and remove these specific files after transpiling
-        fs.copyFileSync("./CHANGELOG.md", "./tutorials/CHANGELOG.md");
+
+        const copyList = prepareCopyList(additionalTutorialFiles);
+        const copyJobs = copyList.map(({ source, target }) => {
+            return copy(source, target);
+        });
+
+        await Promise.all(copyJobs);
+
+        console.info("OK: Prepared docs tutorial files");
     }
     catch (error) {
         console.error("There was a problem with generating docs: ", error);

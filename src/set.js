@@ -17,14 +17,14 @@ const isObject = value => (typeof value === "object" || typeof value === "functi
  * @example set({}, "items.0", value)
  * // will create object, not array
  * { "items": { "0": value }}
- * @return {Object} - given object or new object if source was primitive
+ * @returns {Object} - given object or new object if source was primitive
  */
 const set = (source, path, value) => {
     const pathParts = typeof path === "string" ? path.split(".") : path;
     const len = pathParts.length;
 
     const result = isObject(source) ? source : {};
-    let current = result;
+    let current = result; // eslint-disable-line init-declarations
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;
         const key = pathParts[i];
@@ -40,4 +40,4 @@ const set = (source, path, value) => {
     return result;
 };
 
-module.exports = set;
+export default set;

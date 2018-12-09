@@ -6,6 +6,6 @@ const main = async () => {
         return name.endsWith(".js");
     });
     await Promise.all(files.map(name => fs.remove(name)));
-    console.log(files.length, "files removed.");
+    console.info(files.length, "files removed.");
 };
 main();

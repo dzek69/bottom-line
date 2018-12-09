@@ -1,8 +1,8 @@
-const rmdir = require("./utils/rmdir");
+const { remove } = require("fs-extra");
 
 (async () => {
     const tasks = [
-        rmdir("dist"),
+        remove("dist"),
     ];
 
     try {

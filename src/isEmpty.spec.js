@@ -13,13 +13,13 @@ const emptyString = "";
 const filledString = "abc";
 
 const emptyArray = [];
-const holeyArray = [,];
+const holeyArray = [,]; // eslint-disable-line comma-spacing, no-sparse-arrays
 const filledArray = [1];
 
 let emptyArgs;
-(function() { emptyArgs = arguments })();
+(function() { emptyArgs = arguments; })();
 let filledArgs;
-(function() { filledArgs = arguments })(1, 2, 3);
+(function() { filledArgs = arguments; })(1, 2, 3);
 
 const emptyBuffer = Buffer.from("");
 const filledBuffer = Buffer.from("abc");

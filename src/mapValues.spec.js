@@ -68,8 +68,8 @@ describe("mapValues", () => {
     });
 
     it("works on holey array, behaves NOT like lodash", () => {
-        const holeyArray = [1,,3];
-        const holeyArrayResult = [1,,9];
+        const holeyArray = [1,, 3]; // eslint-disable-line no-sparse-arrays
+        const holeyArrayResult = [1,, 9]; // eslint-disable-line no-sparse-arrays
         const holeyArrayResultLodash = {
             0: 1,
             1: NaN,
@@ -110,7 +110,7 @@ describe("mapValues", () => {
             author: "dzek",
             category: null,
             description: "ABCD",
-        })
+        });
     });
 
     it("crashes on nil values, behaves NOT like lodash", () => {
@@ -127,7 +127,8 @@ describe("mapValues", () => {
                 aaa: false,
             };
 
-            let calls = 0;
+            let calls;
+            calls = 0;
 
             mapValues(source, (value) => {
                 calls++;
@@ -143,7 +144,8 @@ describe("mapValues", () => {
                 title: "albert eats flowers",
             };
 
-            let calls = 0;
+            let calls;
+            calls = 0;
 
             mapValues(source, (value) => {
                 calls++;

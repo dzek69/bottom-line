@@ -20,9 +20,9 @@
  * @returns {*} - found value or default value
  */
 const get = (source, property, defaultValue) => {
-    const properties = typeof property === "string" ? property.split(".") : [... property];
+    const properties = typeof property === "string" ? property.split(".") : [...property];
 
-    let result = source;
+    let result = source; // eslint-disable-line init-declarations
     while (properties.length) {
         const current = properties.shift();
         if (result && typeof result === "object" && current in result) {
@@ -35,4 +35,4 @@ const get = (source, property, defaultValue) => {
     return result;
 };
 
-module.exports = get;
+export default get;

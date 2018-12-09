@@ -1,4 +1,4 @@
-const get = require("./get");
+import get from "./get";
 
 const DEFAULT = {};
 /**
@@ -16,7 +16,7 @@ const DEFAULT = {};
  * // will return 5
  * @returns {*} - found value or default value
  */
-const getMultiple = (source, defaultValue, ... paths) => {
+const getMultiple = (source, defaultValue, ...paths) => {
     const length = paths.length;
     for (let i = 0; i < length; i++) {
         const properties = paths[i];
@@ -28,4 +28,4 @@ const getMultiple = (source, defaultValue, ... paths) => {
     return defaultValue;
 };
 
-module.exports = getMultiple;
+export default getMultiple;

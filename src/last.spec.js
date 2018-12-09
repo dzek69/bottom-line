@@ -2,7 +2,7 @@ import last from "./last";
 import _last from "lodash/last";
 
 const array = [1, 2];
-const holeyArray = [,];
+const holeyArray = [,]; // eslint-disable-line comma-spacing, no-sparse-arrays
 const holeyArray2 = Array(2);
 holeyArray2[0] = 1;
 const holeyArray3 = Array(2);

@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `set` function
 - @todo for get/set methods, that should test and support correctly Sets, Maps, etc.
-### Fixed
-- `main` path in package.json
+- dev stuff: linter, editorconfig
+### Changed
+- upgraded library template
+- switched code to es modules
+- linted code
 
 ## [0.1.2] - 2018-11-09
 ### Fixed

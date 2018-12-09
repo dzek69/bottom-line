@@ -1,9 +1,13 @@
 /.idea/
 /build-scripts/
 /test/
+/dist/**/*.spec.js
 /src/
 
 /.babelrc
 /yarn.lock
 /*.tgz
 /*.log
+/.yarnclean
+/.editorconfig
+/.eslintrc.json

@@ -17,6 +17,13 @@
  */
 
 /**
+ * Value that denotes that property should be removed
+ *
+ * @type {Object}
+ */
+const REMOVE = {};
+
+/**
  * Iterates through object properties returning object with same properties but modified values. Optionally some
  * properties may be filtered out on returned object.
  *
@@ -31,18 +38,15 @@ const mapValues = (source, fn) => {
 
     return keys.reduce((result, key) => {
         const value = fn(source[key], key);
-        if (value !== mapValues.REMOVE) {
-            result[key] = value;
+        if (value !== REMOVE) {
+            result[key] = value; // eslint-disable-line no-param-reassign
         }
         return result;
     }, Array.isArray(source) ? [] : {});
 };
 
-/**
- * Value that denotes that property should be removed
- *
- * @type {Object}
- */
-mapValues.REMOVE = {};
+export default mapValues;
+export {
+    REMOVE,
+};
 
-module.exports = mapValues;

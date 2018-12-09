@@ -4,4 +4,5 @@ module.exports = {
     isEmpty: require("./isEmpty"),
     last: require("./last"),
     mapValues: require("./mapValues"),
+    set: require("./set"),
 };

@@ -64,7 +64,7 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 Underscore was taken. Low-dash (lodash) was taken. How else could I name a line on the bottom?
 
 Oh, about npm name. `bottom-line` is free. But NPM encourages to use it just until you try to publish the package. Then
-it says the name is too similar to another package (not telling which one). It happens to me way to often :( I've run
+it says the name is too similar to another package (not telling which one). It happens to me way too often :( I've run
 out of ideas to I just went with `bottom-line-utils`.
 
 PS. Underscore character is often used for utils JS libraries. Dollar is taken by jQuery and other DOM related
@@ -78,6 +78,7 @@ So I followed the rest and personally I am going to use my library as `_`.
 - isEmpty
 - last
 - mapValues
+- set
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add. 

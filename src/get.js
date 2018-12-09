@@ -5,7 +5,7 @@
  * @param {Object} source - source object to search in
  * @param {string|Array<string>} property - path to the expected value written as dot-separated property names or array
  * with property names. Use Array when your keys includes dots. Keys are treated literally, no parsing is done on keys.
- * @param {*} defaultValue - value to return if path is not found. If path is found, but the value is undefined -
+ * @param {*} [defaultValue] - value to return if path is not found. If path is found, but the value is undefined -
  * default value will NOT be used, use `get(...) || default` instead
  * @example get(object, "deep.property") // equals to safe `object.deep.property`
  * @example get(object, ["deep", "property"]) // same as above

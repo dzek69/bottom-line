@@ -162,4 +162,6 @@ describe("get", () => {
         const _value = _get(testObject, ["product", "object.a"], "def");
         _value.must.equal("def");
     });
+
+    // @todo test Maps, Sets etc
 });

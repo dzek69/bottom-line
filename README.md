@@ -74,12 +74,13 @@ So I followed the rest and personally I am going to use my library as `_`.
 ## Supported methods
 
 - get
-- getMultiple (exclusive)
+- getMultiple (exclusive, compared to lodash)
+- insertSeparator (exclusive)
 - isEmpty
 - last
-- mapValues
+- mapValues (exclusive features)
 - set
-- setImmutable
+- setImmutable (exclusive)
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add. 

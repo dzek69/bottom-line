@@ -26,6 +26,37 @@ describe("setImmutable", () => {
         });
     });
 
+    it("matches the value when path is type number", () => {
+        setImmutable({ a: 1 }, 1, "World").must.eql({
+            a: 1,
+            1: "World",
+        });
+        setImmutable([1], 1, "World").must.eql([
+            1, "World",
+        ]);
+    });
+
+    it("disallows other types than string, number or array of strings and numbers", () => {
+        (() => setImmutable({}, null, "test")).must.throw();
+        (() => setImmutable({}, undefined, "test")).must.throw();
+        (() => setImmutable({}, () => {}, "test")).must.throw();
+        (() => setImmutable({}, {}, "test")).must.throw();
+        (() => setImmutable({}, Symbol("abc"), "test")).must.throw();
+
+        (() => setImmutable({}, [1, "s"], "test")).must.not.throw();
+
+        (() => setImmutable({}, [1, "s", []], "test")).must.throw();
+        (() => setImmutable({}, [() => {}], "test")).must.throw();
+    });
+
+    it("disallows empty path paths", () => {
+        (() => setImmutable({}, "", "test")).must.throw();
+        (() => setImmutable({}, ["a", "", "b"], "test")).must.throw();
+        (() => setImmutable({}, ["a", "b", ""], "test")).must.throw();
+        (() => setImmutable({}, [], "test")).must.throw();
+        (() => setImmutable({}, "a.b..c", "test")).must.throw();
+    });
+
     it("deeply sets value", () => {
         const object = {
             data: {

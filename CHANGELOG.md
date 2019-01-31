@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 ( nothing yet )
 
+## [0.4.1] - 2019-01-31
+### Fixed
+- `setImmutable` not allowing number as path and allowing other incorrect/unexpected values as paths
+
 ## [0.4.0] - 2019-01-30
 ### Added
 - `insertSeparator` method

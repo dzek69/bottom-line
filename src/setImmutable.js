@@ -7,14 +7,37 @@ const clone = value => {
     return { ...value };
 };
 
+const hasOnlyValidPathParts = (array) => {
+    if (!array.length) {
+        return false;
+    }
+    return array.every(item => {
+        const type = typeof item;
+        return (type === "string" && item !== "") || type === "number";
+    });
+};
+
+const getPathParts = (path) => {
+    if (typeof path === "number") {
+        return [String(path)];
+    }
+    if (typeof path === "string") {
+        return path.split(".");
+    }
+    if (Array.isArray(path)) {
+        return path;
+    }
+    throw new TypeError("Path must be a string, a number or an array of strings and numbers");
+};
+
 /**
  * Updates the value at given path of given object. It does not mutate the object but returns a new one. If path is not
  * found then objects are created "on the way". If non-objects are found, they are replaced with new plain objects. If
  * primitives are used as source they are ignored and returned value is empty object with updated value at given path.
  *
  * @param {Object} source - source object to mutate
- * @param {string|Array<string>} path - path where value should be stored, written as dot-separated property names or
- * array with property names. Use Array when your keys includes dots.
+ * @param {string|number|Array<string|number>} path - path where value should be stored, written as dot-separated
+ * property names or array with property names. Use Array when your keys includes dots.
  * @param {*} value - value to be set
  * @example set(object, "deep.property", value)
  * @example set(object, ["deep", "property"], value)
@@ -26,8 +49,12 @@ const clone = value => {
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
-const set = (source, path, value) => {
-    const pathParts = typeof path === "string" ? path.split(".") : path;
+const set = (source, path, value) => { // eslint-disable-line max-statements
+    const pathParts = getPathParts(path);
+    const isValidPath = hasOnlyValidPathParts(pathParts);
+    if (!isValidPath) {
+        throw new TypeError("Path must not be empty or contain empty parts");
+    }
     const len = pathParts.length;
 
     const result = isObject(source) ? clone(source) : {};

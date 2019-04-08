@@ -1,3 +1,4 @@
+import coalesce from "./coalesce";
 import get from "./get";
 import getMultiple from "./getMultiple";
 import insertSeparator from "./insertSeparator";
@@ -8,12 +9,13 @@ import set from "./set";
 import setImmutable from "./setImmutable";
 
 export {
+    coalesce,
     get,
     getMultiple,
     insertSeparator,
     isEmpty,
     last,
-    mapValues,
+    mapValues, // @TODO export REMOVE from mapValues ?
     set,
     setImmutable,
 };

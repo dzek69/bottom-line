@@ -621,10 +621,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@dzek69/eslint-config-base@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@dzek69/eslint-config-base/-/eslint-config-base-0.0.1.tgz#016a69901ccb62ca6f3c5c6d36081c770ec5c918"
-  integrity sha512-GVwRZpL2ykZq672nrB7PwbfeNNTp1D70PAlLinjKwtPofdEFSRpD8fL1JcN/BZZwzc0xmHv5RKKgfRONez4i5A==
+"@dzek69/eslint-config-base@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/@dzek69/eslint-config-base/-/eslint-config-base-0.0.3.tgz#82331d4989f76bbe036736c02390c87e0df2c2c2"
+  integrity sha512-t9xQ4v4HjZhMuIRLtltQycDy4bF2XoRsWZbStvh7Jg+KsnMwezZRJQ3/gbySm0SgzkzwY7ZnwEFghgVDX24U0g==
 
 abbrev@1:
   version "1.1.1"

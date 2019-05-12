@@ -73,12 +73,15 @@ So I followed the rest and personally I am going to use my library as `_`.
 
 ## Supported methods
 
+- coalesce (exclusive, compared to lodash)
 - get
-- getMultiple (exclusive, compared to lodash)
+- getMultiple (exclusive)
 - insertSeparator (exclusive)
 - isEmpty
 - last
 - mapValues (exclusive features)
+- omit
+- pick
 - set
 - setImmutable (exclusive)
 
@@ -87,21 +90,18 @@ want to add.
 
 ## Methods to be supported
 
-- pick
-- omit
 (TODO)
 
 ## Features
 
 - unit tests with `mocha` & `must.js`
-- es6+ first approach, with es5 transpiled version to be found inside `dist` folder *
+- es6+ first approach, with transpiled version to be found inside `dist` folder *
 
 \* - transpiling kills JS engines optimizations, makes codes longer and tree shaking harder to do and/or slower
 
 ## To do for 1.0.0
 
 - make a list of important methods to include in this library
-- prepare a build script to mess-free development and easy importing like `import _get from "bottom-line/get"`
 - consider making all methods non-crashy, as some already are
 
 ## License

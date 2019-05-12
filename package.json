@@ -1,6 +1,6 @@
 {
   "name": "bottom-line-utils",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "index.js",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
@@ -21,7 +21,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
-    "@dzek69/eslint-config-base": "^0.0.1",
+    "@dzek69/eslint-config-base": "^0.0.3",
     "babel-plugin-rewire": "^1.2.0",
     "cross-env": "^5.2.0",
     "docdash": "^1.0.0",

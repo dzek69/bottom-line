@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2019-05-12
+### Added
+- `pick` and `omit` methods
+### Changed
+- babel config for `dist` transpiled code upgraded, to transpile less features
+
 ## [0.5.0] - 2019-04-09
 ### Added
 - `coalesce` method

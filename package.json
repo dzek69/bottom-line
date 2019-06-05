@@ -1,6 +1,6 @@
 {
   "name": "bottom-line-utils",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "main": "index.js",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
@@ -27,7 +27,7 @@
     "docdash": "^1.0.0",
     "eslint": "^5.9.0",
     "fs-extra": "^7.0.1",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.2",
     "mocha": "^5.2.0",
     "must": "^0.13.4"
   }

@@ -25,7 +25,7 @@
     "babel-plugin-rewire": "^1.2.0",
     "cross-env": "^5.2.0",
     "docdash": "^1.0.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.16.0",
     "fs-extra": "^7.0.1",
     "jsdoc": "^3.6.2",
     "mocha": "^5.2.0",

@@ -73,7 +73,7 @@ So I followed the rest and personally I am going to use my library as `_`.
 
 ## Supported methods
 
-- coalesce (exclusive, compared to lodash)
+- coalesce ("better version" of lodash `defaultTo`)
 - get
 - getMultiple (exclusive)
 - insertSeparator (exclusive)

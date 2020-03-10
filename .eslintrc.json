@@ -10,7 +10,9 @@
     },
     "overrides": [
         {
-            "files": ["src/*.spec.js", "src/**/*.spec.js"],
+            "files": [
+                "src/*.spec.mjs", "src/**/*.spec.mjs"
+            ],
             "env": {
                 "mocha": true
             },
@@ -22,8 +24,7 @@
                 "max-statements": "off",
                 "no-empty-function": "off",
                 "no-magic-numbers": "off",
-                "no-unused-labels": "off",
-                "prefer-rest-params": "off"
+                "no-unused-labels": "off"
             }
         }
     ]

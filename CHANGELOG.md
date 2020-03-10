@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.7.0-beta.1] - 2020-03-10
+### Added
+- native ESM support
+### Changed
+- upgraded deps
+### Removed
+- support for deep imports like: `bottom-line-utils/get`, use `bottom-line-utils/src/get` or
+`bottom-line-utils/dist/get` for now
+
 ## [0.6.3] - 2019-08-29
 ### Fixed
 - dev deps audit issues
@@ -67,8 +76,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.0] - 2018-05-31
 ### Added
-- `get` function 
-- `getMultiple` function 
-- `isEmpty` function 
-- `last` function 
-- `mapValues` function 
+- `get` function
+- `getMultiple` function
+- `isEmpty` function
+- `last` function
+- `mapValues` function

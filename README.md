@@ -12,36 +12,29 @@ Documentation can be found here: [bottom-line documentation](https://dzek69.gith
 
 ## Usage
 
-Import just desired method (recommended):
-```javascript
-import get from "bottom-line-utils/get";
-``` 
+### EcmaScript Modules
 
-Import just desired method (not recommended, tree shaking is harder, but if you're sure about your bundler it's cleaner
-to import few methods this way):
+Import desired method:
 ```javascript
 import { get } from "bottom-line-utils";
-``` 
+```
 
 Import whole library:
 ```javascript
 import _ from "bottom-line-utils";
-``` 
+```
 
-Import just desired method transpiled to ES5 (but you should transpile the library yourself if really needed):
-```javascript
-import get from "bottom-line-utils/dist/get";
-``` 
+### CommonJS
 
-Import just desired method transpiled to ES5 (not recommended way):
+Import just desired method transpiled to CommonJS:
 ```javascript
-import { get } from "bottom-line-utils/dist";
-``` 
+const { get } = require("bottom-line-utils/dist");
+```
 
-Import whole library transpiled to ES5:
+Import whole library transpiled to CommonJS:
 ```javascript
-import _ from "bottom-line-utils/dist";
-``` 
+const _ = require("bottom-line-utils/dist");
+```
 
 ## Motivation
 
@@ -86,18 +79,15 @@ So I followed the rest and personally I am going to use my library as `_`.
 - setImmutable (exclusive)
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
-want to add. 
+want to add.
 
 ## Methods to be supported
 
 (TODO)
 
-## Features
+## Tested
 
-- unit tests with `mocha` & `must.js`
-- es6+ first approach, with transpiled version to be found inside `dist` folder *
-
-\* - transpiling kills JS engines optimizations, makes codes longer and tree shaking harder to do and/or slower
+This library is fully unit tested and can be used on production.
 
 ## To do for 1.0.0
 

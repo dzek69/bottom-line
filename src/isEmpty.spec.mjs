@@ -1,5 +1,6 @@
-import isEmpty from "./isEmpty";
-import _isEmpty from "lodash/isEmpty";
+import isEmpty from "./isEmpty.mjs";
+import _ from "lodash";
+const _isEmpty = _.isEmpty;
 
 const emptyMap = new Map();
 const filledMap = new Map();
@@ -17,9 +18,9 @@ const holeyArray = [,]; // eslint-disable-line comma-spacing, no-sparse-arrays
 const filledArray = [1];
 
 let emptyArgs;
-(function() { emptyArgs = arguments; })();
+(function() { emptyArgs = arguments; })(); // eslint-disable-line prefer-rest-params
 let filledArgs;
-(function() { filledArgs = arguments; })(1, 2, 3);
+(function() { filledArgs = arguments; })(1, 2, 3); // eslint-disable-line prefer-rest-params
 
 const emptyBuffer = Buffer.from("");
 const filledBuffer = Buffer.from("abc");
@@ -94,7 +95,7 @@ describe("isEmpty", () => {
         _isEmpty(emptyObject).must.be.true();
 
         isEmpty(filledObject).must.be.false();
-        _isEmpty(filledObject).must.be.false();
+        _isEmpty({ a: 555, b: 666 }).must.be.false();
 
         isEmpty(nonEnumObject).must.be.true();
         _isEmpty(nonEnumObject).must.be.true();

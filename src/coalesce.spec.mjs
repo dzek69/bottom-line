@@ -1,4 +1,4 @@
-import coalesce from "./coalesce";
+import coalesce from "./coalesce.mjs";
 
 describe("coalesce", () => {
     it("works with basic values", () => {

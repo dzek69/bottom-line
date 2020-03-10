@@ -1,5 +1,6 @@
-import set from "./set";
-import _set from "lodash/set";
+import set from "./set.mjs";
+import _ from "lodash";
+const _set = _.set;
 
 describe("set", () => {
     it("replaces existing value, behaves like lodash", () => {

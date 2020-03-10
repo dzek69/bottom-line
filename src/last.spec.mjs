@@ -1,5 +1,6 @@
-import last from "./last";
-import _last from "lodash/last";
+import last from "./last.mjs";
+import _ from "lodash";
+const _last = _.last;
 
 const array = [1, 2];
 const holeyArray = [,]; // eslint-disable-line comma-spacing, no-sparse-arrays

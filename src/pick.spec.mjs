@@ -1,5 +1,6 @@
-import pick from "./pick";
-import _pick from "lodash/pick";
+import pick from "./pick.mjs";
+import _ from "lodash";
+const _pick = _.pick;
 
 describe("pick", () => {
     it("returns empty object when source is not given, behaves like lodash", () => {

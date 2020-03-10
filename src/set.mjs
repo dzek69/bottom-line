@@ -24,7 +24,7 @@ const set = (source, path, value) => {
     const len = pathParts.length;
 
     const result = isObject(source) ? source : {};
-    let current = result; // eslint-disable-line init-declarations
+    let current = result;
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;
         const key = pathParts[i];

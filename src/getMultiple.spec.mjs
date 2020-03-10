@@ -1,4 +1,4 @@
-import getMultiple from "./getMultiple";
+import getMultiple from "./getMultiple.mjs";
 
 const testObject = {
     product: {

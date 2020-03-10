@@ -1,4 +1,4 @@
-import setImmutable from "./setImmutable";
+import setImmutable from "./setImmutable.mjs";
 
 describe("setImmutable", () => {
     it("updates existing value", () => {

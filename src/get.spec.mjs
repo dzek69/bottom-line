@@ -1,5 +1,6 @@
-import get from "./get";
-import _get from "lodash/get";
+import get from "./get.mjs";
+import _ from "lodash";
+const _get = _.get;
 
 const otherObject = { a: 5 };
 const testObject = {

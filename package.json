@@ -1,6 +1,6 @@
 {
   "name": "bottom-line-utils",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "dist/index.js",
   "module": "src/index.mjs",
   "repository": "https://github.com/dzek69/bottom-line.git",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
     "@dzek69/eslint-config-base": "^1.0.1",
+    "babel-plugin-module-extension": "^0.1.1",
     "babel-plugin-rewire": "^1.2.0",
     "cross-env": "^7.0.2",
     "docdash": "^1.2.0",
@@ -39,6 +40,6 @@
     }
   },
   "libraryTemplate": {
-    "version": "2.0.0"
+    "version": "2.0.3"
   }
 }

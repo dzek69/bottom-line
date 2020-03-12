@@ -11,7 +11,8 @@
     "overrides": [
         {
             "files": [
-                "src/*.spec.mjs", "src/**/*.spec.mjs"
+                "src/*.spec.mjs",
+                "src/**/*.spec.mjs"
             ],
             "env": {
                 "mocha": true

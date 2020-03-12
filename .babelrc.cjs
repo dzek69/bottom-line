@@ -16,7 +16,8 @@ const config = {
         ]
     ],
     plugins: [
-        env === "testing" ? "rewire" : null
+        env === "testing" ? "rewire" : null,
+        ["module-extension", { mjs: "" }]
     ].filter(Boolean),
 };
 

@@ -935,6 +935,11 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-module-extension@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/babel-plugin-module-extension/-/babel-plugin-module-extension-0.1.1.tgz#fdd5d4ccd888c7aaae3adedde579f00c530f217e"
+  integrity sha512-+69ymVZMU+Hzt7TH7lcsTmHz5EZsxPw+UgVe3aZez5ILA4+HvMOOtkW2Q7FYhnxjo5KpfKeJNZYVbWLu/5Kojw==
+
 babel-plugin-rewire@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/babel-plugin-rewire/-/babel-plugin-rewire-1.2.0.tgz#822562d72ed2c84e47c0f95ee232c920853e9d89"

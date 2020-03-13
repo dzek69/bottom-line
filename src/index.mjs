@@ -17,7 +17,7 @@ export {
     insertSeparator,
     isEmpty,
     last,
-    mapValues, // @TODO export REMOVE from mapValues ?
+    mapValues,
     omit,
     pick,
     set,

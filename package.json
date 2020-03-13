@@ -1,19 +1,25 @@
 {
   "name": "bottom-line-utils",
-  "version": "0.7.1",
-  "main": "dist/index.js",
-  "module": "src/index.mjs",
+  "version": "0.8.0",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",
   "scripts": {
     "test": "cross-env NODE_ENV=testing mocha --require ./test/bootstrap.cjs 'src/**/*.spec.mjs'",
     "docs": "node build-scripts/docs.mjs && jsdoc -r src README.md -t node_modules/docdash -d ./docs -u ./tutorials -c jsdoc.json && node build-scripts/docs.after.mjs",
-    "transpile": "node build-scripts/transpile.mjs && babel src -d dist --ignore **/*.spec.mjs",
+    "transpile": "node build-scripts/transpile.mjs && babel src -d dist --ignore **/*.spec.mjs && node build-scripts/transpile.after.mjs",
     "prepublishOnly": "yarn lint && yarn test && yarn docs",
     "prepack": "yarn transpile",
     "lint": "cross-env eslint --report-unused-disable-directives 'src/**/*.mjs' 'src/*.mjs'",
     "lint:fix": "yarn lint --fix"
+  },
+  "main": "dist/index.js",
+  "module": "src/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./src/index.mjs"
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -40,6 +46,7 @@
     }
   },
   "libraryTemplate": {
-    "version": "2.0.3"
+    "version": "2.0.5",
+    "fixDefaultForCommonJS": true
   }
 }

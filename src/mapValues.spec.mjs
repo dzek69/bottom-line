@@ -1,6 +1,8 @@
-import mapValues, { REMOVE } from "./mapValues.mjs";
+import mapValues from "./mapValues.mjs";
 import _ from "lodash";
 const _mapValues = _.mapValues;
+
+const REMOVE = mapValues.REMOVE;
 
 describe("mapValues", () => {
     const square = v => v * v;

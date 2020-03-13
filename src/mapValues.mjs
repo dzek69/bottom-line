@@ -44,9 +44,7 @@ const mapValues = (source, fn) => {
         return result;
     }, Array.isArray(source) ? [] : {});
 };
+mapValues.REMOVE = REMOVE;
 
 export default mapValues;
-export {
-    REMOVE,
-};
 

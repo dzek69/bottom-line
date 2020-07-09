@@ -47,7 +47,7 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 - cover only most typical use cases,
 - add useful methods that are missing in lodash,
 - not include non-useful/rare methods that are present in lodash,
-- not being 100% compatible replacement for lodash/underscore, but keeping most of behavior identical,
+- not being 100% compatible replacement for lodash/underscore, but keeping most behavior identical,
 - not being a "polyfill" (no `map`/`forEach` etc.),
 - not being inconsistent or trying to guess user intentions (lodash does that, see tests for `get`),
 - perform fast and have code size small.
@@ -75,6 +75,7 @@ So I followed the rest and personally I am going to use my library as `_`.
 - mapValues (exclusive features)
 - omit
 - pick
+- remove
 - set
 - setImmutable (exclusive)
 

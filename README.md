@@ -1,6 +1,6 @@
 # bottom-line
 
-A tiny and fast lodash-inspired utils library.
+A tiny and fast utils library. Bigger changes are coming.
 
 ## Documentation
 
@@ -66,6 +66,8 @@ So I followed the rest and personally I am going to use my library as `_`.
 
 ## Supported methods
 
+### General use
+
 - coalesce ("better version" of lodash `defaultTo`)
 - get
 - getMultiple (exclusive)
@@ -78,6 +80,10 @@ So I followed the rest and personally I am going to use my library as `_`.
 - remove
 - set
 - setImmutable (exclusive)
+
+### Specific use
+
+- pages (exclusive)
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add.

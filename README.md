@@ -12,36 +12,22 @@ Documentation can be found here: [bottom-line documentation](https://dzek69.gith
 
 ## Usage
 
-### EcmaScript Modules
+### TypeScript
 
-Import desired method:
-```javascript
-import { get } from "bottom-line-utils";
-```
+Library comes with basic TypeScript support. Some very dynamic methods (like get/set) requires typecasting, and I can't
+do much about it. Those shouldn't be often needed with clean code and TypeScript anyway.
 
-Import whole library:
-```javascript
-import _ from "bottom-line-utils";
-```
+### EcmaScript Modules vs CommonJS
 
-### CommonJS
-
-Import just desired method transpiled to CommonJS:
-```javascript
-const { get } = require("bottom-line-utils/dist");
-```
-
-Import whole library transpiled to CommonJS:
-```javascript
-const _ = require("bottom-line-utils/dist");
-```
+Both ESM and CJS code is bundled within library. With recent Node.js and/or bundlers you will get optimized ESM code
+automatically and older stuff will fallback to CJS code.
 
 ## Motivation
 
 Lodash complexity that causes big bundle sizes just for using single function. Lodash is trying to cover each possible
 use case, even very rare while typical observed use case of lodash is basic methods used on basic data. As an example,
 let's take a `_.pick` method that simply returns an object, based on source object, with just some properties copied.
-Easy, right? Few lines of code? Lodash makes that 114 imports.
+Easy, right? Few lines of code? Lodash makes that 114 imports!
 
 `bottom-line` aims to:
 - cover only most typical use cases,
@@ -54,15 +40,13 @@ Easy, right? Few lines of code? Lodash makes that 114 imports.
 
 ## Name
 
-Underscore was taken. Low-dash (lodash) was taken. How else could I name a line on the bottom?
+Underscore character is often used for utils JS libraries. Dollar is taken by jQuery and other DOM related
+libraries. Others easy to type on standard layout keyboard, non a-z characters aren't valid JS variable name starters.
+"Underscore" is taken. Low-dash ("lodash") is taken. How else could I name a line on the bottom?
 
 Oh, about npm name. `bottom-line` is free. But NPM encourages to use it just until you try to publish the package. Then
 it says the name is too similar to another package (not telling which one). It happens to me way too often :( I've run
 out of ideas to I just went with `bottom-line-utils`.
-
-PS. Underscore character is often used for utils JS libraries. Dollar is taken by jQuery and other DOM related
-libraries. Others easy to type on standard layout keyboard, non a-z characters aren't valid JS variable name starters.
-So I followed the rest and personally I am going to use my library as `_`.
 
 ## Supported methods
 
@@ -91,6 +75,8 @@ want to add.
 ## Methods to be supported
 
 (TODO)
+- debounce
+- throttle
 
 ## Tested
 
@@ -99,7 +85,6 @@ This library is fully unit tested and can be used on production.
 ## To do for 1.0.0
 
 - make a list of important methods to include in this library
-- consider making all methods non-crashy, as some already are
 
 ## License
 

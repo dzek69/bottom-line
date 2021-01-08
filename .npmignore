@@ -1,13 +1,15 @@
 /.idea/
 /build-scripts/
 /test/
-/dist/**/*.spec.js
 
-/.babelrc.cjs
+/.editorconfig
+/.eslintrc.json
+/babel.config.cjs
+/jest.config.cjs
+/nodemon.json
+/tsconfig.*
 /yarn.lock
+
 /*.tgz
 /*.log
 /.yarnclean
-/jsdoc.json
-/.editorconfig
-/.eslintrc.json

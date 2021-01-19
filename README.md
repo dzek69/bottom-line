@@ -58,6 +58,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - insertSeparator (exclusive)
 - isEmpty
 - last
+- makeArray (exclusive)
 - mapValues (exclusive features)
 - omit
 - pick

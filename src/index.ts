@@ -4,6 +4,7 @@ export * from "./getMultiple.js";
 export * from "./insertSeparator.js";
 export * from "./isEmpty.js";
 export * from "./last.js";
+export * from "./makeArray.js";
 export * from "./mapValues.js";
 export * from "./omit.js";
 export * from "./pages.js";

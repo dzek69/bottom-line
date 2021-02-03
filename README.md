@@ -60,15 +60,18 @@ out of ideas to I just went with `bottom-line-utils`.
 - last
 - makeArray (exclusive)
 - mapValues (exclusive features)
+- match (exclusive)
 - omit
 - pick
 - remove
 - set
 - setImmutable (exclusive)
+- sortBy (exclusive)
 
 ### Specific use
 
 - pages (exclusive)
+- pack (exclusive)
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add.

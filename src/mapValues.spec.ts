@@ -104,7 +104,7 @@ describe("mapValues", () => {
                 return value + 1;
             }
             if (key === "description") {
-                return value.toUpperCase();
+                return (value as string).toUpperCase();
             }
             return value;
         }).must.eql({
@@ -157,5 +157,21 @@ describe("mapValues", () => {
 
             calls.must.equal(2);
         }
+    });
+
+    it("leaves gaps in an array if some elements are removed", () => {
+        const array = [1, "string", 1, "dog", 69];
+
+        const res = mapValues(array, (val) => (typeof val === "string" ? REMOVE : val));
+
+        // eslint-disable-next-line no-sparse-arrays
+        res.must.eql([
+            1, , 1, , 69,
+        ]);
+        ("0" in res).must.be.true();
+        ("1" in res).must.be.false();
+        ("2" in res).must.be.true();
+        ("3" in res).must.be.false();
+        ("4" in res).must.be.true();
     });
 });

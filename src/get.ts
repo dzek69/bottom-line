@@ -1,4 +1,4 @@
-type Source = Record<string, unknown>;
+interface Source { [key: string]: unknown }
 
 /**
  * Returns the value at given path of given object. If path is not found then default value is returned. No exceptions

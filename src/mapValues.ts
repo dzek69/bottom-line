@@ -34,7 +34,6 @@ type MapValuesFn<S, R> = (value: S[keyof S], key: keyof S) => R;
  * @example mapValues({ a: 1, b: 2 }, () => REMOVE) // will return {}
  * @returns {Object|Array}
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 const mapValues = <SourceObject extends object, PossibleReturnValues>(
     source: SourceObject, fn: MapValuesFn<SourceObject, PossibleReturnValues>,
 ): { [P in keyof SourceObject]: PossibleReturnValues } => {

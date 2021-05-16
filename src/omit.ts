@@ -1,4 +1,4 @@
-type Source = Record<string, unknown>;
+type Source = object;
 
 /**
  * Returns new object with copied all properties without these specified.

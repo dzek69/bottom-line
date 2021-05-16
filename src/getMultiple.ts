@@ -1,6 +1,6 @@
 import { get } from "./get.js";
 
-type Source = Record<string, unknown>;
+interface Source { [key: string]: unknown }
 
 const DEFAULT = {};
 /**

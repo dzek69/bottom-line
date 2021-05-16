@@ -871,10 +871,10 @@
   resolved "https://registry.npmjs.org/@dzek69/eslint-config-base/-/eslint-config-base-2.0.0.tgz#1116d9d9b41a5d64b3695256a9733f14bceec8c0"
   integrity sha512-TaPVQ5i3K5GtJxhsS6HMO+KyaKKJGI+6TG0kuCzqPt6MrcwwtWlbLbWdMG6UnSZ3J8sUTT6A57JJmYDffeT6JQ==
 
-"@dzek69/eslint-config-typescript@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.npmjs.org/@dzek69/eslint-config-typescript/-/eslint-config-typescript-0.2.4.tgz#c08a63b95fe59f416ed983daf0ea59aba8dd5727"
-  integrity sha512-i9rRDDPk0NDdLfaLeaf6xCTNAJeu+n9zjZMJwXChYYB8En9MEHKmfU1RC9/D5MP6GKsbgvPQTjR1PXUkgoSmbQ==
+"@dzek69/eslint-config-typescript@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/@dzek69/eslint-config-typescript/-/eslint-config-typescript-0.3.2.tgz#4c42d41e294113bcdeb04c858963ce40beebff21"
+  integrity sha512-91tNKjN7owEFL9tfS3ccP5TDYOJqYw4kuCbOltCXomYY5xrzgZ7vTa209rTlG17M+TWbYSVdMvkTWT+MYHfLhQ==
 
 "@eslint/eslintrc@^0.2.2":
   version "0.2.2"
@@ -1539,6 +1539,11 @@ babel-plugin-jest-hoist@^26.6.2:
     "@babel/types" "^7.3.3"
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
+
+babel-plugin-module-extension@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/babel-plugin-module-extension/-/babel-plugin-module-extension-0.1.3.tgz#77de3044503bd328a12e6372dec20e33f66b8b3f"
+  integrity sha512-/qinVu5EfAFlmmgAZMpg0apcHW52g0tgU8c9LONlbM1pKCYrlYLMltKmKBEIr7If4K2eQUNOtdBzIHkP28jBcw==
 
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"

@@ -1,4 +1,4 @@
-type Source = Record<string, unknown>;
+interface Source { [key: string]: unknown }
 
 const isObject = (value: unknown) => (typeof value === "object" || typeof value === "function") && value !== null;
 

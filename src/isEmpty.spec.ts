@@ -29,10 +29,10 @@ const filledObject = { a: 5 };
 const nonEnumObject = {};
 Object.defineProperty(nonEnumObject, "prop", { enumerable: false, value: 666 });
 
-const Element = function() {};
-Element.prototype.prop = 5;
+const SomeElement = function() {};
+SomeElement.prototype.prop = 5;
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const inheritedObject = new Element();
+const inheritedObject = new SomeElement();
 
 const emptyTypedArray = new Uint8Array();
 const filledTypedArray = new Uint8Array(1);

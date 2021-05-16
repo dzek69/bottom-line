@@ -1,4 +1,4 @@
-type Source = Record<string, unknown>;
+interface Source { [key: string]: unknown }
 
 const sortBy = (prop: string, asc = true, def = null) => {
     return (a: Source, b: Source) => {

@@ -12,6 +12,7 @@ export * from "./pack.js";
 export * from "./pages.js";
 export * from "./pick.js";
 export * from "./remove.js";
+export * from "./seq.js";
 export * from "./set.js";
 export * from "./setImmutable.js";
 export * from "./sortBy.js";

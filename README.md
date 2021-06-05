@@ -64,6 +64,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - omit
 - pick
 - remove
+- seq
 - set
 - setImmutable (exclusive)
 - sortBy (exclusive)

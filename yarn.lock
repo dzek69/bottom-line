@@ -1596,6 +1596,11 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+better-custom-error@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.npmjs.org/better-custom-error/-/better-custom-error-4.0.5.tgz#a3d28fa2ad757d057c521e5ddbaa3383bfd7d368"
+  integrity sha512-Upf8/VT6JPYsPG2pEQZg5rB0DPseOqFlqLc0tYQEERWUcihC/E8G/uhMkDJ6sfy7Qnhn7/N4o9UiIjaetbOsYg==
+
 binary-extensions@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.1.0.tgz#30fa40c9e7fe07dbc895678cd287024dea241dd9"

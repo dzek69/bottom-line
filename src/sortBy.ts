@@ -1,4 +1,4 @@
-const sortBy = <T>(prop: keyof T, asc = true, def = null) => (a: T, b: T) => {
+const sortBy = <T>(prop: keyof T, asc = true, def: unknown = null) => (a: T, b: T) => {
     if (a[prop] === b[prop]) {
         return 0;
     }

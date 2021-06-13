@@ -13,10 +13,10 @@ const findBiggestFit = (pkg: Elem[], items: Elem[], limit: number) => {
 };
 
 // eslint-disable-next-line max-statements
-const pack = (files: Elem[], packSize: number, sizeLimit: number) => {
+const pack = <T extends Elem>(files: T[], packSize: number, sizeLimit: number) => {
     const { matched, unmatched } = match(files, item => (item.size ?? 0) > sizeLimit);
 
-    const packed: Elem[][] = [];
+    const packed: T[][] = [];
     const rejected = matched;
 
     if (!unmatched.length) {
@@ -26,7 +26,6 @@ const pack = (files: Elem[], packSize: number, sizeLimit: number) => {
     }
 
     const sorted = unmatched.sort(
-        // @ts-expect-error TypeScript weirdness here?
         sortBy("size", false, 0),
     );
 

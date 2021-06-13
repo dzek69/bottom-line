@@ -1,4 +1,4 @@
-type Source = object;
+// TODO verify & maybe fix typings when object is an Array
 
 /**
  * Returns new object with copied all properties without these specified.
@@ -13,12 +13,16 @@ type Source = object;
  * // { 1: "world" }
  * @returns {Object} - new object without given properties
  */
-const omit = <T extends Source>(object: T |null, props: (keyof T)[]): Source => {
+const omit = <T extends object, K extends keyof T>(
+    object: T | null, props: K[],
+): T extends null ? { [key: string]: never }: Omit<T, K> => {
     if (!object || (typeof object !== "object" && typeof object !== "function")) {
+        // @ts-expect-error TS can't handle implementation of dynamic return types yet
         return {};
     }
 
     if (!Array.isArray(props) || !props.length) {
+        // @ts-expect-error TS can't handle implementation of dynamic return types yet
         return {
             ...object,
         };
@@ -32,6 +36,7 @@ const omit = <T extends Source>(object: T |null, props: (keyof T)[]): Source => 
             (result as T)[key] = object[key];
         }
     }
+    // @ts-expect-error TS can't handle implementation of dynamic return types yet
     return result;
 };
 

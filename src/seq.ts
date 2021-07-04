@@ -9,7 +9,9 @@ const fail = function() {
 type Fn<T> = () => T;
 type Args<T> = Fn<T>[] | [Fn<T>[]];
 
-const run = <T>(list: Fn<T>[]): Promise<T> => {
+type EarlyBreaker = (e: unknown) => boolean;
+
+const run = <T>(list: Fn<T>[], earlyBreaker?: EarlyBreaker): Promise<T> => {
     if (!list.length) {
         return fail();
     }
@@ -22,6 +24,11 @@ const run = <T>(list: Fn<T>[]): Promise<T> => {
         const errors: Error[] = [];
 
         const doTry = function(error?: Error) {
+            if (error !== undefined && earlyBreaker && earlyBreaker(error)) {
+                reject(error);
+                return;
+            }
+
             if (error) {
                 errors.push(error);
             }
@@ -39,11 +46,15 @@ const run = <T>(list: Fn<T>[]): Promise<T> => {
     });
 };
 
-const seq = <T>(...args: Args<T>) => {
+const seqEarlyBreak = <T>(earlyBreaker: EarlyBreaker | undefined, ...args: Args<T>) => {
     if (args.length === 1) {
-        return run(Array.isArray(args[0]) ? args[0] : [args[0]]);
+        return run(Array.isArray(args[0]) ? args[0] : [args[0]], earlyBreaker);
     }
-    return run(args as Fn<T>[]);
+    return run(args as Fn<T>[], earlyBreaker);
 };
 
-export { seq, AllFailedError };
+const seq = <T>(...args: Args<T>) => {
+    return seqEarlyBreak(undefined, ...args);
+};
+
+export { seq, seqEarlyBreak, AllFailedError };

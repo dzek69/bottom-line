@@ -7,6 +7,6 @@
  * @example last([]) // undefined
  * @returns {*} - last element of an array or undefined
  */
-const last = <T>(array: T[]): T => array[array.length - 1];
+const last = <T>(array: T[]): T | undefined => array[array.length - 1];
 
 export { last };

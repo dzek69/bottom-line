@@ -1,4 +1,4 @@
-import { AllFailedError, seq } from "./seq";
+import { AllFailedError, seq, seqEarlyBreak } from "./seq";
 
 describe("first", () => {
     // @TODO more tests
@@ -106,6 +106,50 @@ describe("first", () => {
             if (e instanceof TypeError) {
                 e.message.must.equal("At least one function must be provided.");
             }
+        }
+
+        caught.must.be.true();
+    });
+
+    it("allows to break early on rejection", async () => {
+        let firstCalled = false,
+            secondCalled = false,
+            thirdCalled = false;
+
+        const list = [
+            () => {
+                firstCalled = true;
+                // eslint-disable-next-line prefer-promise-reject-errors
+                return Promise.reject(1);
+            },
+            () => {
+                secondCalled = true;
+                // eslint-disable-next-line prefer-promise-reject-errors
+                return Promise.reject(2);
+            },
+            () => {
+                thirdCalled = true;
+                // eslint-disable-next-line prefer-promise-reject-errors
+                return Promise.reject(3);
+            },
+        ];
+
+        let caught = false;
+        try {
+            await seqEarlyBreak((e: unknown) => {
+                if (e === 2) {
+                    return true;
+                }
+                return false;
+            }, list);
+        }
+        catch (e: unknown) {
+            caught = true;
+            e.must.be.equal(2);
+
+            firstCalled.must.be.true();
+            secondCalled.must.be.true();
+            thirdCalled.must.be.false();
         }
 
         caught.must.be.true();

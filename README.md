@@ -61,9 +61,11 @@ out of ideas to I just went with `bottom-line-utils`.
 - makeArray (exclusive)
 - mapValues (exclusive features)
 - match (exclusive)
+- noop
 - omit
 - pick
 - remove
+- rethrow (exclusive)
 - seq
 - set
 - setImmutable (exclusive)

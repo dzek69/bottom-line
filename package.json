@@ -38,6 +38,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@dzek69/eslint-config-base": "^2.1.0",
     "@dzek69/eslint-config-typescript": "^0.4.0",
+    "@types/jest": "^26.0.23",
     "@types/lodash": "^4.14.168",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
@@ -48,12 +49,11 @@
     "jest": "^27.0.6",
     "lodash": "^4.17.21",
     "must": "^0.13.4",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.14",
     "ts-node": "^9.0.0",
     "typedoc": "^0.21.2",
-    "typescript": "^4.2.4",
-    "@types/jest": "^26.0.23",
-    "typedoc-plugin-pages-fork-fork": "^0.0.3"
+    "typedoc-plugin-pages-fork-fork": "^0.0.3",
+    "typescript": "^4.2.4"
   },
   "husky": {
     "hooks": {

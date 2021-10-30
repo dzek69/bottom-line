@@ -15,7 +15,7 @@
  * // will upper case all properties and filter out `name` property
  * @returns {*}
  */
-const REMOVE = {};
+const REMOVE = typeof Symbol !== "undefined" ? Symbol("remove") : {};
 type MapValuesFn<S, R> = (value: S[keyof S], key: keyof S) => R;
 
 /**

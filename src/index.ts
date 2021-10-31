@@ -7,6 +7,7 @@ export * from "./last.js";
 export * from "./makeArray.js";
 export * from "./mapValues.js";
 export * from "./match.js";
+export * from "./merge.js";
 export * from "./noop.js";
 export * from "./omit.js";
 export * from "./pack.js";

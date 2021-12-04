@@ -21,6 +21,9 @@
             "env": {
                 "jest": true
             },
+            "globals": {
+                "must": true
+            },
             "rules": {
                 "func-names": "off",
                 "global-require": "off",

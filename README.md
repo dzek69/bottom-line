@@ -59,6 +59,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - isEmpty
 - last
 - makeArray (exclusive)
+- mapAsync (exclusive)
 - mapValues (exclusive features)
 - match (exclusive)
 - noop
@@ -70,6 +71,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - set
 - setImmutable (exclusive)
 - sortBy (exclusive)
+- wait (exclusive)
 
 ### Specific use
 

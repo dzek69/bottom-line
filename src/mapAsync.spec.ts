@@ -34,4 +34,6 @@ describe("mapAsync", () => {
 
         clearTimeout(id);
     });
+
+    // @TODO more tests, test callback params
 });

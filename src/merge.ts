@@ -14,7 +14,8 @@ interface Merge {
 }
 
 /**
- * Shallow merges given objects into new object. It does not mutate any object given.
+ * Shallow merges given objects into new object. It does not mutate any object given. Allows removing properties as
+ * well by assigning special merge.UNSET value.
  * @param {...object} args - input objects
  * @returns {*}
  */

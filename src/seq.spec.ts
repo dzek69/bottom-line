@@ -1,4 +1,4 @@
-import { AllFailedError, seq, seqEarlyBreak } from "./seq";
+import { seq, seqEarlyBreak } from "./seq";
 
 describe("first", () => {
     // @TODO more tests
@@ -79,8 +79,8 @@ describe("first", () => {
         }
         catch (e: unknown) {
             caught = true;
-            e.must.be.instanceof(AllFailedError);
-            if (e instanceof AllFailedError) {
+            e.must.be.instanceof(Error);
+            if (e instanceof Error) {
                 e.message.must.equal("Every function had thrown.");
                 const errors = e.details?.errors as Error[];
                 errors.must.be.an.array();

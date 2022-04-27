@@ -1,6 +1,6 @@
 # bottom-line
 
-A tiny and fast utils library. Bigger changes are coming.
+A tiny and fast utils library. Bigger changes are coming (including library rename).
 
 ## Documentation
 
@@ -52,6 +52,7 @@ out of ideas to I just went with `bottom-line-utils`.
 
 ### General use
 
+- cap (exclusive)
 - coalesce ("better version" of lodash `defaultTo`)
 - get
 - getMultiple (exclusive)
@@ -67,11 +68,14 @@ out of ideas to I just went with `bottom-line-utils`.
 - pick
 - remove
 - rethrow (exclusive)
+- scale (exclusive)
 - seq
 - set
 - setImmutable (exclusive)
 - sortBy (exclusive)
+- truthy (exclusive)
 - wait (exclusive)
+- waitFor (exclusive)
 
 ### Specific use
 

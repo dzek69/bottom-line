@@ -1,7 +1,3 @@
-import { createError } from "better-custom-error";
-
-const AllFailedError = createError("AllFailedError");
-
 const fail = function() {
     return Promise.reject(new TypeError("At least one function must be provided."));
 };
@@ -34,9 +30,9 @@ const run = <T>(list: Fn<T>[], earlyBreaker?: EarlyBreaker): Promise<T> => {
             }
             const fn = promises.shift();
             if (typeof fn !== "function") {
-                const finalError = new AllFailedError("Every function had thrown.", {
-                    errors,
-                });
+                const finalError = new Error("Every function had thrown.");
+                // @ts-expect-error More details on error object are wanted
+                finalError.details = { errors };
                 reject(finalError);
             }
             promise = (promise.then(fn).then(resolve, doTry)) as unknown as Promise<T>;
@@ -57,4 +53,4 @@ const seq = <T>(...args: Args<T>) => {
     return seqEarlyBreak(undefined, ...args);
 };
 
-export { seq, seqEarlyBreak, AllFailedError };
+export { seq, seqEarlyBreak };

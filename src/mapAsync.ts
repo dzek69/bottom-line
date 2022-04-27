@@ -3,11 +3,20 @@ import { wait } from "./wait.js";
 const DEFAULT_MAX_BLOCK_TIME = 16; // a frame
 const DEFAULT_WAIT_TIME = 1;
 
+/**
+ * Non-blocking version of `Array.prototype.map`, it will pause the map loop every `pauseEvery`. Keep in mind that
+ * depending on your code workload the pause interval and duration may be exact or longer than specified. It's the same
+ * single thread JavaScript nature setTimeout have to follow.
+ * @param {Array} context - original array
+ * @param {function} callback - map function
+ * @param {number} pauseEvery - pause after this many ms
+ * @param {number} pauseTime - how long to wait on pause
+ */
 const mapAsync = async <T, Y>(
     context: readonly T[],
     callback: (item: T, key: number, array: readonly T[]) => Y,
-    maxBlockTime = DEFAULT_MAX_BLOCK_TIME,
-    waitTime = DEFAULT_WAIT_TIME,
+    pauseEvery = DEFAULT_MAX_BLOCK_TIME,
+    pauseTime = DEFAULT_WAIT_TIME,
 ): Promise<Y[]> => {
     let lastWaitMoment = Date.now();
     const result = [];
@@ -18,8 +27,8 @@ const mapAsync = async <T, Y>(
         const item = context[i];
         // eslint-disable-next-line callback-return
         result.push(callback(item, i, context));
-        if (Date.now() - lastWaitMoment >= maxBlockTime) {
-            await wait(waitTime);
+        if (Date.now() - lastWaitMoment >= pauseEvery) {
+            await wait(pauseTime);
             lastWaitMoment = Date.now();
         }
     }

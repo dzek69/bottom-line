@@ -1,3 +1,4 @@
+export * from "./cap.js";
 export * from "./coalesce.js";
 export * from "./get.js";
 export * from "./getMultiple.js";
@@ -16,8 +17,11 @@ export * from "./pages.js";
 export * from "./pick.js";
 export * from "./remove.js";
 export * from "./rethrow.js";
+export * from "./scale.js";
 export * from "./seq.js";
 export * from "./set.js";
 export * from "./setImmutable.js";
 export * from "./sortBy.js";
+export * from "./truthy.js";
 export * from "./wait.js";
+export * from "./waitFor.js";

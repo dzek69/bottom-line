@@ -1,6 +1,6 @@
 {
   "name": "bottom-line-utils",
-  "version": "0.19.1",
+  "version": "0.20.0",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",
@@ -29,7 +29,6 @@
   "types": "./esm/index.d.ts",
   "module": "./esm/index.js",
   "type": "module",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -47,7 +46,7 @@
     "jest": "^27.5.1",
     "lodash": "^4.17.21",
     "must": "^0.13.4",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.18",
     "ts-node": "^9.0.0",
     "typedoc": "^0.21.10",
     "typedoc-plugin-pages-fork-fork": "^0.0.3",

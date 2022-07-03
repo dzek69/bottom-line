@@ -54,6 +54,7 @@ out of ideas to I just went with `bottom-line-utils`.
 
 - cap (exclusive)
 - coalesce ("better version" of lodash `defaultTo`)
+- ensureError (exclusive)
 - get
 - getMultiple (exclusive)
 - insertSeparator (exclusive)

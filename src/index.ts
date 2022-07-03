@@ -1,5 +1,6 @@
 export * from "./cap.js";
 export * from "./coalesce.js";
+export * from "./ensureError.js";
 export * from "./get.js";
 export * from "./getMultiple.js";
 export * from "./insertSeparator.js";

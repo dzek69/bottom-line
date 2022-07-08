@@ -23,6 +23,7 @@ export * from "./seq.js";
 export * from "./set.js";
 export * from "./setImmutable.js";
 export * from "./sortBy.js";
+export * from "./throttle.js";
 export * from "./truthy.js";
 export * from "./wait.js";
 export * from "./waitFor.js";

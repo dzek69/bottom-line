@@ -74,6 +74,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - set
 - setImmutable (exclusive)
 - sortBy (exclusive)
+- throttle (exclusive features)
 - truthy (exclusive)
 - wait (exclusive)
 - waitFor (exclusive)

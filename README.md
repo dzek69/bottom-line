@@ -53,6 +53,7 @@ out of ideas to I just went with `bottom-line-utils`.
 ### General use
 
 - cap (exclusive)
+- capitalize (exclusive features)
 - coalesce ("better version" of lodash `defaultTo`)
 - ensureError (exclusive)
 - get

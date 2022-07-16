@@ -10,12 +10,14 @@ describe("wait", () => {
             const start1 = Date.now();
             await wait(5);
             const end1 = Date.now();
-            (end1 - start1).must.be.gte(5);
+            (end1 - start1).must.be.gte(4);
+            // Note: because some Date.now() rounding may occur, end - start may be actually less than the wait time
 
             const start2 = Date.now();
             await wait(100);
             const end2 = Date.now();
-            (end2 - start2).must.be.gte(100);
+            (end2 - start2).must.be.gte(99);
+            // Note: because some Date.now() rounding may occur, end - start may be actually less than the wait time
         });
 
         // @TODO does not block test

@@ -1,4 +1,5 @@
 export * from "./cap.js";
+export * from "./capitalize.js";
 export * from "./coalesce.js";
 export * from "./ensureError.js";
 export * from "./get.js";

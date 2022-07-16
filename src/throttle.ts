@@ -67,8 +67,9 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
         timeoutId: ReturnType<typeof setTimeout> | null = null,
         lastResult: RT | undefined,
         lastArgs: Parameters<F>,
-        times = typeof time === "number" ? [time] : [...time],
         lastTime = typeof time === "number" ? time : time[0];
+
+    const times = typeof time === "number" ? [time] : [...time];
 
     // eslint-disable-next-line max-statements
     const throttledFn = ((...args: Parameters<F>) => {
@@ -113,7 +114,15 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
         lastRun = 0;
         lastResult = undefined;
 
-        times = typeof time === "number" ? [time] : time;
+        // we can't replace `times` with different instance - throttledFn already has one, so we clear the array
+        // and refill it
+        times.length = 0;
+        if (typeof time === "number") {
+            times.push(time);
+        }
+        else {
+            times.push(...time);
+        }
         lastTime = typeof time === "number" ? time : time[0];
     };
     throttledFn.flush = () => {

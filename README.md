@@ -65,6 +65,7 @@ out of ideas to I just went with `bottom-line-utils`.
 - mapAsync (exclusive)
 - mapValues (exclusive features)
 - match (exclusive)
+- mostFrequent (exclusive)
 - noop
 - omit
 - pick

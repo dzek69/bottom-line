@@ -12,6 +12,7 @@ export * from "./mapAsync.js";
 export * from "./mapValues.js";
 export * from "./match.js";
 export * from "./merge.js";
+export * from "./mostFrequent.js";
 export * from "./noop.js";
 export * from "./omit.js";
 export * from "./pack.js";

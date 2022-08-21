@@ -4,7 +4,7 @@
  * @param {*} val - test value
  * @returns {boolean} - is value truthy
  */
-const truthy = <T>(val: T | null | undefined | "" | false | typeof NaN | 0): val is T => {
+const truthy = <T>(val: T | null | undefined | "" | false | 0): val is T => {
     return Boolean(val);
 };
 

@@ -1,5 +1,5 @@
-import { mapAsync } from "./mapAsync";
-import { wait } from "./wait";
+import { mapAsync } from "./mapAsync.js";
+import { wait } from "./wait.js";
 
 const slowCb = (val: number) => {
     wait.sync(5);

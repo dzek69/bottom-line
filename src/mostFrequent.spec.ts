@@ -1,4 +1,4 @@
-import { mostFrequent } from "./mostFrequent";
+import { mostFrequent } from "./mostFrequent.js";
 
 describe("mostFrequent", () => {
     it("returns most frequent element", () => {

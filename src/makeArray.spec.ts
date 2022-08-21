@@ -1,4 +1,4 @@
-import { makeArray } from "./makeArray";
+import { makeArray } from "./makeArray.js";
 
 describe("makeArray", () => {
     it("must return given value untouched if the value is an array", () => {

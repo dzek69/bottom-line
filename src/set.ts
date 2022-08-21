@@ -21,11 +21,12 @@ const isObject = (value: unknown) => (typeof value === "object" || typeof value 
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
-const set = (source: Source, path: string | string[], value: unknown): Source | unknown => {
+const set = (source: Source, path: string | string[], value: unknown): Source | unknown => { // eslint-disable-line @typescript-eslint/no-redundant-type-constituents,max-len
     const pathParts = typeof path === "string" ? path.split(".") : path;
     const len = pathParts.length;
 
     const result = isObject(source) ? source : {};
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     let current: Source | unknown = result;
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;

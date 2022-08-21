@@ -15,7 +15,7 @@
  */
 const pick = <T extends object, K extends keyof T>(
     object: T | null, props: K[],
-): T extends null ? { [ key: string]: never} : Pick<T, K> => {
+): T extends null ? { [ key: string]: never } : Pick<T, K> => {
     if (
         !object
         || (typeof object !== "object" && typeof object !== "function")

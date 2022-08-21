@@ -1,5 +1,6 @@
-import { isEmpty } from "./isEmpty";
 import { isEmpty as _isEmpty } from "lodash";
+
+import { isEmpty } from "./isEmpty.js";
 
 const emptyMap = new Map();
 const filledMap = new Map();

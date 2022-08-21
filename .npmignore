@@ -4,7 +4,7 @@
 
 /.editorconfig
 /.eslintrc.json
-/babel.config.cjs
+/babel.config.js
 /jest.config.cjs
 /nodemon.json
 /tsconfig.*
@@ -15,3 +15,5 @@
 /.yarnclean
 /.eslintrc.json
 /test.mjs
+
+/pagesconfig.json

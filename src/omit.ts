@@ -15,7 +15,7 @@
  */
 const omit = <T extends object, K extends keyof T>(
     object: T | null, props: K[],
-): T extends null ? { [key: string]: never }: Omit<T, K> => {
+): T extends null ? { [key: string]: never } : Omit<T, K> => {
     if (!object || (typeof object !== "object" && typeof object !== "function")) {
         // @ts-expect-error TS can't handle implementation of dynamic return types yet
         return {};

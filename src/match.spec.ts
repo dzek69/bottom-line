@@ -1,4 +1,4 @@
-import { match } from "./match";
+import { match } from "./match.js";
 
 describe("match", () => {
     it("must match correctly", () => {

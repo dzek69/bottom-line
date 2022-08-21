@@ -1,4 +1,4 @@
-import { insertSeparator } from "./insertSeparator";
+import { insertSeparator } from "./insertSeparator.js";
 
 describe("insertSeparator", () => {
     it("inserts value on array with data", () => {

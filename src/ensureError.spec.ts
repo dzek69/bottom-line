@@ -1,4 +1,4 @@
-import { ensureError } from "./ensureError";
+import { ensureError } from "./ensureError.js";
 
 describe("ensureError", () => {
     it("returns unmodified error if error given", () => {

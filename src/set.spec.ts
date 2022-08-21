@@ -1,5 +1,6 @@
-import { set } from "./set";
 import { set as _set } from "lodash";
+
+import { set } from "./set.js";
 
 describe("set", () => {
     it("replaces existing value, behaves like lodash", () => {

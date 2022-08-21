@@ -1,4 +1,4 @@
-import { cap } from "./cap";
+import { cap } from "./cap.js";
 
 describe("cap", () => {
     it("caps too big values", () => {

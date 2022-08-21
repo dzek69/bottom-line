@@ -1,5 +1,6 @@
-import { pick } from "./pick";
 import { pick as _pick } from "lodash";
+
+import { pick } from "./pick.js";
 
 describe("pick", () => {
     it("returns empty object when source is not given, behaves like lodash", () => {

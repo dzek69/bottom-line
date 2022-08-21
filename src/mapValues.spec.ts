@@ -1,5 +1,6 @@
-import { mapValues } from "./mapValues";
 import { mapValues as _mapValues } from "lodash";
+
+import { mapValues } from "./mapValues.js";
 
 const REMOVE = mapValues.REMOVE;
 

@@ -1,4 +1,4 @@
-import { pack } from "./pack";
+import { pack } from "./pack.js";
 
 describe("pack", () => {
     it("must limit pack by total size", () => { // @TODO split into smaller tests

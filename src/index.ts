@@ -1,3 +1,4 @@
+/* eslint-disable import/max-dependencies */
 export * from "./cap.js";
 export * from "./capitalize.js";
 export * from "./coalesce.js";

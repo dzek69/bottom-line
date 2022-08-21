@@ -1,4 +1,4 @@
-import { seq, seqEarlyBreak } from "./seq";
+import { seq, seqEarlyBreak } from "./seq.js";
 
 describe("first", () => {
     // @TODO more tests

@@ -1,5 +1,6 @@
-import { omit } from "./omit";
 import { omit as _omit } from "lodash";
+
+import { omit } from "./omit.js";
 
 describe("omit", () => {
     it("returns empty object when source is not given, behaves like lodash", () => {

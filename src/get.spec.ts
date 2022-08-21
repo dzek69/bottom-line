@@ -1,5 +1,6 @@
-import { get } from "./get";
 import { get as _get } from "lodash";
+
+import { get } from "./get.js";
 
 const otherObject = { a: 5 };
 const testObject = {
@@ -148,6 +149,7 @@ describe("get", () => {
     });
 
     it("returns inherited properties value, behaves like lodash", () => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         const value = get(testInstance, "nonOwn", 3);
         value.must.equal(1);
 
@@ -157,6 +159,7 @@ describe("get", () => {
     });
 
     it("returns non-enumerable properties value, behaves like lodash", () => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         const value = get(testInstance, "nonEnum", 3);
         value.must.equal(15);
 

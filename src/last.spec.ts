@@ -1,5 +1,6 @@
-import { last } from "./last";
 import { last as _last } from "lodash";
+
+import { last } from "./last.js";
 
 const array = [1, 2];
 const holeyArray = [,]; // eslint-disable-line no-sparse-arrays

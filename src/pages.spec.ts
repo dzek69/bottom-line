@@ -1,4 +1,4 @@
-import { pages } from "./pages";
+import { pages } from "./pages.js";
 
 // @TODO add some edge case tests for even amount of pages to display
 // maybe test cases for odd number of pages?

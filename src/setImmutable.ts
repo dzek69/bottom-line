@@ -39,7 +39,7 @@ const getPathParts = (path: Path) => {
  * primitives are used as source they are ignored and returned value is empty object with updated value at given path.
  *
  * @param {Object} source - source object to mutate
- * @param {string|number|Array<string|number>} path - path where value should be stored, written as dot-separated
+ * @param {Path} path - path where value should be stored, written as dot-separated
  * property names or array with property names. Use Array when your keys includes dots.
  * @param {*} value - value to be set
  * @example set(object, "deep.property", value)
@@ -52,7 +52,7 @@ const getPathParts = (path: Path) => {
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
-const setImmutable = (source: Source, path: Path, value: unknown): Source | unknown => { // eslint-disable-line max-statements, max-len
+const setImmutable = (source: Source, path: Path, value: unknown): Source | unknown => { // eslint-disable-line max-statements, max-len, @typescript-eslint/no-redundant-type-constituents
     const pathParts = getPathParts(path);
     const isValidPath = hasOnlyValidPathParts(pathParts);
     if (!isValidPath) {
@@ -61,6 +61,7 @@ const setImmutable = (source: Source, path: Path, value: unknown): Source | unkn
     const len = pathParts.length;
 
     const result = isObject(source) ? clone(source) : {};
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     let current: Source | unknown = result;
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;

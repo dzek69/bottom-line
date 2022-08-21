@@ -90,7 +90,8 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
 
         // we want timers here!
         const diffLastRun = Date.now() - lastRun;
-        if (opts.leading && diffLastRun >= lastTime) { // we want initial run and last run was long time ago
+        if (opts.leading && diffLastRun >= (times[0] ?? finalTime)) {
+            // we want initial run and last run was long time ago
             lastRun = Date.now();
             lastResult = fn(...args);
             return lastResult;

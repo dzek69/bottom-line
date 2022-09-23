@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.24.0] - 2022-09-23
+### Added
+- `pull` method
+### Changed
+- `throttle` with multiple timeouts working more as intended with `opts.leading` = true
+### Fixed
+- first timeout of `throttle` with multiple timeouts repeated two times
+
 ## [0.23.2] - 2022-08-21
 ### Fixed
 - `throttle` with trailing call not respecting multiple timeouts

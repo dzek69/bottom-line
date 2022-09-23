@@ -2,6 +2,7 @@ import { throttle } from "./throttle.js";
 import { wait } from "./wait.js";
 
 // @TODO much more tests required
+// @TODO for some reason these tests are useless, at 2cfbbc81 they should fail, but they weren't
 
 describe("throttle", function() {
     it("should work with single value timeout", async function() {
@@ -17,7 +18,7 @@ describe("throttle", function() {
             await wait(1);
         }
 
-        runTimes.length.must.be.gte(19); // just to be sure something run
+        runTimes.length.must.be.gte(10); // just to be sure something run
         runTimes.length.must.be.lt(21);
 
         runTimes.forEach((time, key) => {

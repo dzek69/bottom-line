@@ -67,7 +67,8 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
         timeoutId: ReturnType<typeof setTimeout> | null = null,
         lastResult: RT | undefined,
         lastArgs: Parameters<F>,
-        lastTime = typeof time === "number" ? time : time[0];
+        lastTime = typeof time === "number" ? time : time[0],
+        leadingCalled = false;
 
     const times = typeof time === "number" ? [time] : [...time];
 
@@ -90,21 +91,22 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
 
         // we want timers here!
         const diffLastRun = Date.now() - lastRun;
-        if (opts.leading && diffLastRun >= (times[0] ?? finalTime)) {
+        if (opts.leading && (!leadingCalled || typeof time === "number") && diffLastRun >= (times[0] ?? finalTime)) {
             // we want initial run and last run was long time ago
             lastRun = Date.now();
             lastResult = fn(...args);
+            leadingCalled = true;
             return lastResult;
         }
 
-        if (lastRun) {
+        if (lastRun || !opts.leading) {
             lastTime = times.shift() ?? finalTime;
         }
         timeoutId = setTimeout(() => {
             timeoutId = null;
             lastRun = Date.now();
             lastResult = fn(...args);
-        }, lastRun ? lastTime - diffLastRun : lastTime);
+        }, lastRun ? (lastTime - diffLastRun + 1) : lastTime);
 
         return lastResult;
     }) as (CanReturnUndefined<F> & Extras);

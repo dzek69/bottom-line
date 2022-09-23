@@ -19,6 +19,7 @@ export * from "./omit.js";
 export * from "./pack.js";
 export * from "./pages.js";
 export * from "./pick.js";
+export * from "./pull.js";
 export * from "./remove.js";
 export * from "./rethrow.js";
 export * from "./scale.js";

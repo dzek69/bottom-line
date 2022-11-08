@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.24.1] - 2022-11-08
+### Dev
+- exported some typings
+- library template bump
+
 ## [0.24.0] - 2022-09-23
 ### Added
 - `pull` method

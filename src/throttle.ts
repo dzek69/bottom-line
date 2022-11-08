@@ -11,7 +11,7 @@ interface Opts {
 
 interface Extras {
     /**
-     * Stos any planned calls (and resets the `time` array progress)
+     * Stops any planned calls (and resets the `time` array progress)
      */
     cancel: () => void;
     /**
@@ -144,4 +144,8 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
 
 export {
     throttle,
+};
+
+export type {
+    Extras as ThrottleExtras, Opts as ThrottleOptions,
 };

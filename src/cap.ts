@@ -1,3 +1,9 @@
+/**
+ * Returns a number capped between an upper and lower limit.
+ * @param {number} value - value to cap
+ * @param {number} upperLimit - upper limit, inclusive
+ * @param {number} [lowerLimit] - lower limit, inclusive
+ */
 const cap = (value: number, upperLimit: number, lowerLimit?: number) => {
     if (lowerLimit == null) {
         return Math.min(value, upperLimit);

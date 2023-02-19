@@ -6,14 +6,17 @@ describe("cap", () => {
         cap(101, 100).must.equal(100);
         cap(100.0001, 100).must.equal(100);
     });
+
     it("leaves not big values", () => {
         cap(100, 100).must.equal(100);
         cap(99.999, 100).must.equal(99.999);
     });
+
     it("caps too small values", () => {
         cap(-100, 100, 5).must.equal(5);
         cap(4, 100, 5).must.equal(5);
     });
+
     it("leaves not too small values", () => {
         cap(6, 100, 5).must.equal(6);
         cap(5, 100, 5).must.equal(5);

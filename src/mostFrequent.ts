@@ -1,3 +1,7 @@
+/**
+ * Finds most frequent value in array
+ * @param {Array} array
+ */
 const mostFrequent = <T>(array: T[]): T => {
     let top = 0,
         topValue = array[0];

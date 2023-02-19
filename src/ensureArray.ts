@@ -3,11 +3,11 @@
  * @param {*} value - value to be wrapped
  * @returns {Array}
  */
-const makeArray = <T>(value: T | T[]): T[] => {
+const ensureArray = <T>(value: T | T[]): T[] => {
     if (Array.isArray(value)) {
         return value;
     }
     return [value];
 };
 
-export { makeArray };
+export { ensureArray };

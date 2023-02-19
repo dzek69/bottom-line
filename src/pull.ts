@@ -1,7 +1,7 @@
 /**
- * Modifies the array, removing specified value
- * @param array
- * @param valuesToPull
+ * Modifies the array, removing all occurrences of specified values
+ * @param {Array} array
+ * @param {...*}valuesToPull
  */
 const pull = <T>(array: T[], ...valuesToPull: T[]): T[] => {
     const len = array.length;

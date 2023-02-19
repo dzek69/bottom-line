@@ -12,7 +12,6 @@ const coalesce = <T>(...args: T[]): NonNullable<T> | null => {
     for (let i = 0; i < args.length; i++) {
         const item = args[i];
         if (item != null) {
-            // @ts-expect-error: TypeScript complains for no reason, I could use `as NonNullable<T>` but nope.
             return item;
         }
     }

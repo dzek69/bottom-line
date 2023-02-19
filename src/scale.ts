@@ -3,11 +3,11 @@
  * displaying measured battery voltage as a percent value.
  * Pro-tip: use `Function.prototype.bind` to create yourself a function with bound 4 first arguments to re-use without
  * repeating the from-to scale.
- * @param fromMin
- * @param fromMax
- * @param toMin
- * @param toMax
- * @param number
+ * @param {number} fromMin
+ * @param {number} fromMax
+ * @param {number} toMin
+ * @param {number} toMax
+ * @param {number} number
  */
 const scale = (fromMin: number, fromMax: number, toMin: number, toMax: number, number: number) => {
     return toMin + ((number - fromMin) / (fromMax - fromMin) * (toMax - toMin));

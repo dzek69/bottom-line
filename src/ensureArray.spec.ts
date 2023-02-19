@@ -1,10 +1,10 @@
-import { makeArray } from "./makeArray.js";
+import { ensureArray } from "./ensureArray.js";
 
-describe("makeArray", () => {
+describe("ensureArray", () => {
     it("must return given value untouched if the value is an array", () => {
         singleValue: {
             const x = [5];
-            const result = makeArray(x);
+            const result = ensureArray(x);
             result.must.be.an.array();
             result.must.have.length(1);
             result.must.equal(x);
@@ -13,7 +13,7 @@ describe("makeArray", () => {
 
         noValue: {
             const x = [];
-            const result = makeArray(x);
+            const result = ensureArray(x);
             result.must.be.an.array();
             result.must.have.length(0);
             result.must.equal(x);
@@ -21,7 +21,7 @@ describe("makeArray", () => {
 
         manyValues: {
             const x = [1, "5"];
-            const result = makeArray(x);
+            const result = ensureArray(x);
             result.must.be.an.array();
             result.must.have.length(2);
             result.must.equal(x);
@@ -30,7 +30,7 @@ describe("makeArray", () => {
 
         arrayOfArrays: {
             const x = [[1], [2]];
-            const result = makeArray(x);
+            const result = ensureArray(x);
             result.must.be.an.array();
             result.must.have.length(2);
             result.must.equal(x);
@@ -40,7 +40,7 @@ describe("makeArray", () => {
 
     it("must arrarize object", () => {
         const y = { title: "dzek" };
-        const result = makeArray(y);
+        const result = ensureArray(y);
         result.must.be.an.array();
         result.must.have.length(1);
         result[0].must.equal(y);
@@ -50,7 +50,7 @@ describe("makeArray", () => {
     it("must arrarize function", () => {
         const y = () => 5;
 
-        const result = makeArray(y);
+        const result = ensureArray(y);
         result.must.be.an.array();
         result.must.have.length(1);
         result[0].must.equal(y);
@@ -58,28 +58,28 @@ describe("makeArray", () => {
     });
 
     it("must arrarize null", () => {
-        const result = makeArray(null);
+        const result = ensureArray(null);
         result.must.be.an.array();
         result.must.have.length(1);
         result.must.eql([null]);
     });
 
     it("must arrarize string", () => {
-        const result = makeArray("hey joe");
+        const result = ensureArray("hey joe");
         result.must.be.an.array();
         result.must.have.length(1);
         result.must.eql(["hey joe"]);
     });
 
     it("must arrarize number", () => {
-        const result = makeArray(123);
+        const result = ensureArray(123);
         result.must.be.an.array();
         result.must.have.length(1);
         result.must.eql([123]);
     });
 
     it("must arrarize NaN", () => {
-        const result = makeArray(NaN);
+        const result = ensureArray(NaN);
         result.must.be.an.array();
         result.must.have.length(1);
         result.must.eql([NaN]);

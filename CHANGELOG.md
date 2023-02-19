@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.24.1+]
+### Dev
+- added missing docs
+- fixed some jsdoc strings (so they contain types for non-ts users)
+- README update, preparing to rename library
+### Breaking
+- changed `isEmpty` to throw on primitives
+- `makeArray` is renamed to `ensureArray`
+- `wait.sync` is extracted as `waitSync`
+### Added
+- `isPlainObject` method
+
 ## [0.24.1] - 2022-11-08
 ### Dev
 - exported some typings

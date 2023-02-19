@@ -8,11 +8,6 @@ const wait = (timeMs = 0) => {
         setTimeout(() => { resolve(); }, timeMs);
     });
 };
-wait.sync = (timeMs = 0) => {
-    const s = Date.now();
-    // eslint-disable-next-line no-empty
-    while (Date.now() - s < timeMs) {}
-};
 
 export {
     wait,

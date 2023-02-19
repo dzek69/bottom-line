@@ -1,42 +1,21 @@
 import { wait } from "./wait.js";
 
 describe("wait", () => {
-    describe("async", () => {
-        it("returns a promise", () => {
-            wait(0).must.be.instanceof(Promise);
-        });
-
-        it("waits given time", async () => {
-            const start1 = Date.now();
-            await wait(5);
-            const end1 = Date.now();
-            (end1 - start1).must.be.gte(5);
-
-            const start2 = Date.now();
-            await wait(100);
-            const end2 = Date.now();
-            (end2 - start2).must.be.gte(100);
-        });
-
-        // @TODO does not block test
+    it("returns a promise", () => {
+        wait(0).must.be.instanceof(Promise);
     });
 
-    describe("sync", () => {
-        it("doesn't return value", () => {
-            // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-            must(wait.sync(0)).be.equal(undefined);
-        });
+    it("waits given time", async () => {
+        const start1 = Date.now();
+        await wait(5);
+        const end1 = Date.now();
+        (end1 - start1).must.be.gte(5);
 
-        it("waits given time", () => {
-            const start1 = Date.now();
-            wait.sync(5);
-            const end1 = Date.now();
-            (end1 - start1).must.be.gte(5);
-
-            const start2 = Date.now();
-            wait.sync(100);
-            const end2 = Date.now();
-            (end2 - start2).must.be.gte(100);
-        });
+        const start2 = Date.now();
+        await wait(100);
+        const end2 = Date.now();
+        (end2 - start2).must.be.gte(100);
     });
+
+    // @TODO does not block test
 });

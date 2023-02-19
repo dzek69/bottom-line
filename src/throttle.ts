@@ -147,5 +147,6 @@ export {
 };
 
 export type {
-    Extras as ThrottleExtras, Opts as ThrottleOptions,
+    Extras as ThrottleExtras,
+    Opts as ThrottleOptions,
 };

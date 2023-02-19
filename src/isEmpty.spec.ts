@@ -113,18 +113,18 @@ describe("isEmpty", () => {
         _isEmpty(filledTypedArray).must.be.false();
     });
 
-    it("returns true for primitives and nil, behaves like lodash", () => {
+    it("returns true for nil values", function() {
         isEmpty(null).must.be.true();
         isEmpty(undefined).must.be.true();
-        isEmpty(0).must.be.true();
-        isEmpty(true).must.be.true();
-        isEmpty(Infinity).must.be.true();
-        isEmpty(() => {}).must.be.true();
-        _isEmpty(null).must.be.true();
-        _isEmpty(undefined).must.be.true();
-        _isEmpty(0).must.be.true();
-        _isEmpty(true).must.be.true();
-        _isEmpty(Infinity).must.be.true();
-        _isEmpty(() => {}).must.be.true();
+    });
+
+    it("throws on primitives", () => {
+        (() => isEmpty(0)).must.throw();
+        (() => isEmpty(100)).must.throw();
+        (() => isEmpty(true)).must.throw();
+        (() => isEmpty(false)).must.throw();
+        (() => isEmpty(Infinity)).must.throw();
+        (() => isEmpty(NaN)).must.throw();
+        (() => isEmpty(() => {})).must.throw();
     });
 });

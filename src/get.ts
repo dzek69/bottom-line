@@ -4,6 +4,10 @@ interface Source { [key: string]: unknown }
  * Returns the value at given path of given object. If path is not found then default value is returned. No exceptions
  * are thrown when undefined/null value gets in the way.
  *
+ * This is still too dynamic in nature to get full TypeScript support. Properties are not typed, return type is unknown.
+ * If your data access is statically known there is no need to use this function, just use `object.property` syntax with
+ * optional chaining.
+ *
  * @param {Object} source - source object to search in
  * @param {string|Array<string>} property - path to the expected value written as dot-separated property names or array
  * with property names. Use Array when your keys includes dots. Keys are treated literally, no parsing is done on keys.

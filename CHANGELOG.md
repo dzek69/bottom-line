@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - changed `isEmpty` to throw on primitives
 - `makeArray` is renamed to `ensureArray`
 - `wait.sync` is extracted as `waitSync`
+### Changed
+- in jsdoc added a warning to get/set and family about using them with TS
 ### Added
 - `isPlainObject` method
 

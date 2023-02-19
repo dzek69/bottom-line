@@ -38,6 +38,9 @@ const getPathParts = (path: Path) => {
  * found then objects are created "on the way". If non-objects are found, they are replaced with new plain objects. If
  * primitives are used as source they are ignored and returned value is empty object with updated value at given path.
  *
+ * This is still too dynamic in nature to get full TypeScript support. Properties are not typed, return type is unknown.
+ * It is recommended to use `immutable-assign` package instead.
+ *
  * @param {Object} source - source object to mutate
  * @param {Path} path - path where value should be stored, written as dot-separated
  * property names or array with property names. Use Array when your keys includes dots.

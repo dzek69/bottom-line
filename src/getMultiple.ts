@@ -7,6 +7,10 @@ const DEFAULT = {};
  * Returns first found value at given list of paths of given object. Will return and stop at undefined if found. If
  * nothing is found then default value (required to pass) will be returned.
  *
+ * This is still too dynamic in nature to get full TypeScript support. Properties are not typed, return type is unknown.
+ * If your data access is statically known there is no need to use this function, just use `object.property` syntax with
+ * optional chaining.
+ *
  * @param {Object} source - source object to search in
  * @param {*} defaultValue - default value to return if nothing is found
  * @param {...string|Array.<string>} paths - paths defined as dot-separated properties names or array of properties name

@@ -17,8 +17,6 @@ export * from "./merge.js";
 export * from "./mostFrequent.js";
 export * from "./noop.js";
 export * from "./omit.js";
-export * from "./pack.js";
-export * from "./pages.js";
 export * from "./pick.js";
 export * from "./pull.js";
 export * from "./remove.js";

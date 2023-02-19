@@ -1,3 +1,8 @@
+/**
+ * Source object to search in.
+ *
+ * @see {@link get}.
+ */
 interface Source { [key: string]: unknown }
 
 /**
@@ -42,3 +47,7 @@ const get = (source: Source, property: string | string[], defaultValue: unknown 
 };
 
 export { get };
+
+export type {
+    Source as GetSource,
+};

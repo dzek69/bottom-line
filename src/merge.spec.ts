@@ -1,4 +1,4 @@
-import { merge } from "./merge.js";
+import { merge, mergeUNSET } from "./merge.js";
 
 describe("merge", () => {
     it("merges two objects", () => {
@@ -31,35 +31,39 @@ describe("merge", () => {
     });
 
     it("allows to unset value", () => {
-        const result = merge({ c: true }, { c: merge.UNSET });
+        const result = merge({ c: true }, { c: mergeUNSET });
         result.must.not.have.property("c");
         result.must.eql({});
     });
 
     it("allows to overwrite unset value", () => {
-        const result = merge({ c: true }, { c: merge.UNSET }, { c: true });
+        const result = merge({ c: true }, { c: mergeUNSET }, { c: true });
         result.must.eql({ c: true });
     });
 
     it("rejects arrays", () => {
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, [])).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, [])).must.throw(TypeError);
     });
 
     it("rejects primitive types", () => {
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, "string")).must.throw(TypeError);
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, 555)).must.throw(TypeError);
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, false)).must.throw(TypeError);
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, Symbol("hi"))).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, "string")).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, 555)).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, false)).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, Symbol("hi"))).must.throw(TypeError);
     });
 
     it("rejects functions", () => {
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, () => "hi")).must.throw(TypeError);
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, () => "hi")).must.throw(TypeError);
     });
 
     it("ignores nil", () => {
-        (() => merge({ c: true }, { c: merge.UNSET }, { c: true }, undefined, null)).must.not.throw();
-        merge({ c: true }, { c: merge.UNSET }, { c: true }, undefined, null).must.eql({
+        (() => merge({ c: true }, { c: mergeUNSET }, { c: true }, undefined, null)).must.not.throw();
+        merge({ c: true }, { c: mergeUNSET }, { c: true }, undefined, null).must.eql({
             c: true,
         });
+    });
+
+    it("unsets value if mergeUNSET is present on first object", function() {
+        merge({ c: mergeUNSET }).must.eql({});
     });
 });

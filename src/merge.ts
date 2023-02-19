@@ -1,3 +1,8 @@
+/**
+ * Special value that can be set as a value in an object.
+ * If this value is merged with previous value - the property in a final object will be removed;
+ * @see {@link merge}
+ */
 const UNSET = typeof Symbol !== "undefined" ? Symbol("UNSET") : {};
 
 interface Merge {
@@ -10,12 +15,14 @@ interface Merge {
     <A, B, C, D, E, F, G>(a: A, b: B, c: C, d: D, e: E, f: F, g: G): A & B & C & D & E & F & G;
     <A, B, C, D, E, F, G, H>(a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H): A & B & C & D & E & F & G & H;
     <A, B extends object>(a: A, ...args: B[]): unknown;
-    UNSET: typeof UNSET;
 }
 
 /**
  * Shallow merges given objects into new object. It does not mutate any object given. Allows removing properties as
- * well by assigning special `merge.UNSET` value.
+ * well by assigning special `mergeUNSET` value.
+ * @example merge({a: 1}, {b: 2}) // {a: 1, b: 2}
+ * @example merge({a: 1}, {a: 2}) // {a: 2}
+ * @example merge({a: 1}, {a: mergeUNSET}) // {}
  * @param {...object} args - input objects
  * @returns {*}
  */
@@ -44,8 +51,8 @@ const merge: Merge = <MergeCandidate extends object>(...args: MergeCandidate[]) 
     });
     return r;
 };
-merge.UNSET = UNSET;
 
 export {
     merge,
+    UNSET as mergeUNSET,
 };

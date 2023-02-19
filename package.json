@@ -1,6 +1,6 @@
 {
-  "name": "bottom-line-utils",
-  "version": "0.24.1+",
+  "name": "@ezez/utils",
+  "version": "1.0.0",
   "repository": "https://github.com/dzek69/bottom-line.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",

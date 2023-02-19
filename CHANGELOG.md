@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Dev
 - added missing docs
 - fixed some jsdoc strings (so they contain types for non-ts users)
+- fixed typedoc warnings
 - README update, preparing to rename library
 ### Breaking
 - changed `isEmpty` to throw on primitives
 - `makeArray` is renamed to `ensureArray`
 - `wait.sync` is extracted as `waitSync`
+- removed `pack` method
+- removed `pages` method
+- replaced `merge.UNSET` with `mergeUNSET`
+- replaced `mapValues.REMOVE` with `mapValuesUNSET`
 ### Changed
+- added some examples to docs
 - in jsdoc added a warning to get/set and family about using them with TS
 ### Added
 - `isPlainObject` method

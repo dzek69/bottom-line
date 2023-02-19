@@ -2,9 +2,27 @@ const fail = function() {
     return Promise.reject(new TypeError("At least one function must be provided."));
 };
 
+/**
+ * Function to be called.
+ *
+ * @see {@link seq}
+ */
 type Fn<T> = () => T;
-type Args<T> = Fn<T>[] | [Fn<T>[]];
 
+/**
+ * Functions to call sequentially.
+ * Either an array of functions or a list of functions.
+ *
+ * @see {@link seq}
+ */
+type Functions<T> = Fn<T>[] | [Fn<T>[]];
+
+/**
+ * A function that decides if the sequential run should be early stopped.
+ *
+ * @param {*} e - Value thrown by the function (usually Error).
+ * @see {@link seq}
+ */
 type EarlyBreaker = (e: unknown) => boolean;
 
 const run = <T>(list: Fn<T>[], earlyBreaker?: EarlyBreaker): Promise<T> => {
@@ -46,12 +64,16 @@ const run = <T>(list: Fn<T>[], earlyBreaker?: EarlyBreaker): Promise<T> => {
  * The same as {@link seq} but accepts a function that gets run after each error and using that erro decides if continue
  * to try next functions.
  *
+ * @example seqEarlyBreak(
+ *   (e) => e.message === "important error",
+ *   () => { throw new Error("important error") }, () => 2, () => 3
+ * ) // throws given important error, does not run next functions
  * @param {EarlyBreaker} earlyBreaker - function that decides about early breaking the sequential run
- * @param {...Args<unknown>[]} args - functions to run, you can either pass them as many arguments or just single
+ * @param {...Functions<*>[]} args - functions to run, you can either pass them as many arguments or just single
  * arguments with array
- * @returns {unknown} - whatever gets returned from given functions
+ * @returns {*} - whatever gets returned from given functions
  */
-const seqEarlyBreak = <T>(earlyBreaker: EarlyBreaker | undefined, ...args: Args<T>) => {
+const seqEarlyBreak = <T>(earlyBreaker: EarlyBreaker | undefined, ...args: Functions<T>) => {
     if (args.length === 1) {
         return run(Array.isArray(args[0]) ? args[0] : [args[0]], earlyBreaker);
     }
@@ -62,12 +84,21 @@ const seqEarlyBreak = <T>(earlyBreaker: EarlyBreaker | undefined, ...args: Args<
  * Runs given functions sequentially one by one, until any returns value. Supports async functions. Throws with new
  * Error when every function throws.
  *
- * @param {...Args<unknown>[]} args - functions to run, you can either pass them as many arguments or just single
+ * @example seq(() => 1, () => 2, () => 3) // returns 1
+ * @example seq(() => { throw new Error("1") }, () => 2, () => 3) // returns 2
+ * @example seq(() => { throw new Error("1") }, () => { throw new Error("2") } }) // throws
+ * @param {...Functions<*>[]} fns - functions to run, you can either pass them as many arguments or just single
  * arguments with array
- * @returns {unknown} - whatever gets returned from given functions
+ * @returns {*} - whatever gets returned from given functions
  */
-const seq = <T>(...args: Args<T>) => {
-    return seqEarlyBreak(undefined, ...args);
+const seq = <T>(...fns: Functions<T>) => {
+    return seqEarlyBreak(undefined, ...fns);
 };
 
 export { seq, seqEarlyBreak };
+
+export type {
+    EarlyBreaker as SeqEarlyBreaker,
+    Functions as SeqFunctions,
+    Fn as SeqFn,
+};

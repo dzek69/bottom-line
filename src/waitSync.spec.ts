@@ -2,7 +2,7 @@ import { waitSync } from "./waitSync.js";
 
 describe("wait", () => {
     it("doesn't return value", () => {
-        must(waitSync(0)).be.equal(undefined);
+        must(waitSync(0)).be.equal(undefined); // eslint-disable-line @typescript-eslint/no-confusing-void-expression
     });
 
     it("waits given time", () => {

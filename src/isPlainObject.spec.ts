@@ -1,4 +1,4 @@
-import { isPlainObject } from "./isPlainObject";
+import { isPlainObject } from "./isPlainObject.js";
 
 describe("isPlainObject", function() {
     it("rejects anything non object-like", function() {
@@ -9,6 +9,7 @@ describe("isPlainObject", function() {
         isPlainObject(new URL("https://ezez.dev")).must.be.false();
         isPlainObject([]).must.be.false();
 
+        // eslint-disable-next-line @typescript-eslint/no-extraneous-class
         class X {}
         isPlainObject(X).must.be.false();
     });
@@ -29,6 +30,7 @@ describe("isPlainObject", function() {
     });
 
     it("shouldn't accept any instances", function() {
+        // eslint-disable-next-line @typescript-eslint/no-extraneous-class
         class X {}
         isPlainObject(new X()).must.be.false();
 

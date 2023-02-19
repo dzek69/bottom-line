@@ -1,10 +1,16 @@
 import { get } from "./get.js";
 
+/**
+ * Source object to search in.
+ *
+ * @see {@link getMultiple}.
+ */
 interface Source { [key: string]: unknown }
 
 const DEFAULT = {};
+
 /**
- * Returns first found value at given list of paths of given object. Will return and stop at undefined if found. If
+ * Returns first found value at given list of paths of given object. Will return and stop at undefined if found! If
  * nothing is found then default value (required to pass) will be returned.
  *
  * This is still too dynamic in nature to get full TypeScript support. Properties are not typed, return type is unknown.
@@ -35,3 +41,7 @@ const getMultiple = (source: Source, defaultValue: unknown, ...paths: (string | 
 };
 
 export { getMultiple };
+
+export type {
+    Source as GetMultipleSource,
+};

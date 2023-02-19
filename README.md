@@ -47,8 +47,6 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `mostFrequent` - find most frequent value in an array
 - `noop` - do nothing
 - `omit` - omit properties from an object
-- `pack` - group array items into arrays of given size
-- `pages` - create a pages list to display on front-end
 - `pick` - pick some properties from an object
 - `pull` - remove values from an array (by mutating)
 - `remove` - remove values from an array (by mutating) using predicate function and return removed values

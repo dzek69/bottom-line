@@ -1,6 +1,6 @@
 import { seq, seqEarlyBreak } from "./seq.js";
 
-describe("first", () => {
+describe("seq", () => {
     // @TODO more tests
 
     it("calls methods one by one", async () => {

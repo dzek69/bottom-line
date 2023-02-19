@@ -1,10 +1,15 @@
+/**
+ * Source object.
+ *
+ * @see {@link setImmutable}.
+ */
 interface Source { [key: string]: unknown }
 
 const isObject = (value: unknown) => (typeof value === "object" || typeof value === "function") && value !== null;
 
 const clone = (value: unknown[] | Source) => {
     if (Array.isArray(value)) {
-        return [...value];
+        return [...value as never as unknown[]]; // typecasts to satisfy eslint
     }
     return { ...value };
 };
@@ -19,7 +24,14 @@ const hasOnlyValidPathParts = (array: unknown[]) => {
     });
 };
 
+/**
+ * Argument of {@link setImmutable}.
+ *
+ * Path to store value in. Can be a dot-separated string or an array of strings.
+ * Numbers are allowed for convenience.
+ */
 type Path = number | string | (number | string)[];
+
 const getPathParts = (path: Path) => {
     if (typeof path === "number") {
         return [String(path)];
@@ -51,7 +63,7 @@ const getPathParts = (path: Path) => {
  * // will create this structure:
  * { "deep[0]": { "property": value }}
  * @example set({}, "items.0", value)
- * // will create object, not array
+ * // will create an object, not an array
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
@@ -85,3 +97,8 @@ const setImmutable = (source: Source, path: Path, value: unknown): Source | unkn
 };
 
 export { setImmutable };
+
+export type {
+    Path as SetImmutablePath,
+    Source as SetImmutableSource,
+};

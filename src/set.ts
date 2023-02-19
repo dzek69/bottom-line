@@ -1,3 +1,8 @@
+/**
+ * Source object to mutate.
+ *
+ * @see {@link set}.
+ */
 interface Source { [key: string]: unknown }
 
 const isObject = (value: unknown) => (typeof value === "object" || typeof value === "function") && value !== null;
@@ -48,3 +53,7 @@ const set = (source: Source, path: string | string[], value: unknown): Source | 
 };
 
 export { set };
+
+export type {
+    Source as SetSource,
+};

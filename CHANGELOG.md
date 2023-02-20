@@ -3,12 +3,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.24.1+]
-### Dev
-- added missing docs
-- fixed some jsdoc strings (so they contain types for non-ts users)
-- fixed typedoc warnings
-- README update, preparing to rename library
+## [1.1.0] - 2023-02-20
+### Added
+- `isNumericString` method
+- `occurrences` method
+### Changed
+- `isEmpty` throws `TypeError` instead of `Error` on primitives
+
+## [1.0.0] - 2023-02-19
+### Added
+- `isPlainObject` method
 ### Breaking
 - changed `isEmpty` to throw on primitives
 - `makeArray` is renamed to `ensureArray`
@@ -20,8 +24,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - added some examples to docs
 - in jsdoc added a warning to get/set and family about using them with TS
-### Added
-- `isPlainObject` method
+### Dev
+- added missing docs
+- fixed some jsdoc strings (so they contain types for non-ts users)
+- fixed typedoc warnings
+- README update, preparing to rename library
 
 ## [0.24.1] - 2022-11-08
 ### Dev

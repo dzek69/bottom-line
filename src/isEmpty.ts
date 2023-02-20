@@ -33,7 +33,7 @@ const isEmpty = (obj: unknown) => {
         return true;
     }
     if (typeof obj !== "object") {
-        throw new Error("isEmpty cannot be used on primitives");
+        throw new TypeError("isEmpty cannot be used on primitives");
     }
     if (Array.isArray(obj)) {
         return !Object.keys(obj).length;

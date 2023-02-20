@@ -39,6 +39,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `insertSeparator` - insert a separator between every character in an array
 - `isEmpty` - check if given value is empty
 - `isPlainObject` - check if given value is a plain object
+- `isNumericString` - check if given value is a numeric string, features configurable
 - `last` - get last element of an array
 - `mapAsync` - map an array asynchronously if sync version blocks your event loop for too long
 - `mapValues` - map values of an object
@@ -46,6 +47,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `merge` - merge two objects shallowly, allowing to remove properties while doing so
 - `mostFrequent` - find most frequent value in an array
 - `noop` - do nothing
+- `occurrences` - count occurrences of a substring in a string, optionally allow overlapping
 - `omit` - omit properties from an object
 - `pick` - pick some properties from an object
 - `pull` - remove values from an array (by mutating)

@@ -29,40 +29,61 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 
 ## Supported methods
 
-- `cap` - cap a value between lower and upper bound
+### String related
+- `addPrefix` - add prefix to a string if not already present
+- `addSuffix` - add suffix to a string if not already present
 - `capitalize` - capitalize a string, optionally lower casing the rest
-- `coalesce` - return first non-nullish value
-- `ensureArray` - ensure that given value is an array
-- `ensureError` - ensure that given value is an error
-- `get` - extract a value from a deep object using specified path, optionally with a default value
-- `getMultiple` - same as above, but test multiple paths
-- `insertSeparator` - insert a separator between every character in an array
-- `isEmpty` - check if given value is empty
-- `isPlainObject` - check if given value is a plain object
 - `isNumericString` - check if given value is a numeric string, features configurable
-- `last` - get last element of an array
-- `mapAsync` - map an array asynchronously if sync version blocks your event loop for too long
-- `mapValues` - map values of an object
-- `match` - split your array into two groups - one that matches given predicate, and one that doesn't
-- `merge` - merge two objects shallowly, allowing to remove properties while doing so
-- `mostFrequent` - find most frequent value in an array
-- `noop` - do nothing
 - `occurrences` - count occurrences of a substring in a string, optionally allow overlapping
-- `omit` - omit properties from an object
-- `pick` - pick some properties from an object
+- `stripPrefix` - strip prefix from a string
+- `stripSuffix` - strip suffix from a string
+
+### Number related
+- `cap` - cap a value between lower and upper bound
+- `scale` - scale given value from old range to new range
+
+### Array related
+- `ensureArray` - ensure that given value is an array
+- `insertSeparator` - insert a separator between every character in an array
+- `last` - get last element of an array
+- `match` - split your array into two groups - one that matches given predicate, and one that doesn't
+- `mostFrequent` - find most frequent value in an array
 - `pull` - remove values from an array (by mutating)
 - `remove` - remove values from an array (by mutating) using predicate function and return removed values
-- `rethrow` - throw given value
-- `scale` - scale given value from old range to new range
-- `seq` - sequentially execute Promise-returning functions until one returns a value
-- `set` - set a value in a deep object using specified path
-- `setImmutable` - set a value in a deep object using specified path, but return a new object
 - `sortBy` - sort an array by given property (create callback function for `Array.prototype.sort`)
-- `throttle` - throttle a function, very configurable
-- `truthy` - is value truthy? (useful for filtering with more correct TypeScript support than `filter(Boolean)`)
+
+### Object related
+- `isPlainObject` - check if given value is a plain object
+- `mapValues` - map values of an object
+- `merge` - merge two objects shallowly, allowing to remove properties while doing so
+- `omit` - omit properties from an object
+- `pick` - pick some properties from an object
+
+### Date related
+- `ensureDate` - ensure that given value is a Date instance
+- `ensureTimestamp` - ensure that given value is a numeric timestamp
+
+### Type safety
+- `coalesce` - return first non-nullish value
+- `ensureError` - ensure that given value is an error
+
+### Flow related
+- `mapAsync` - map an array asynchronously if sync version blocks your event loop for too long
+- `noop` - do nothing
+- `rethrow` - throw given value
+- `seq` - sequentially execute Promise-returning functions until one returns a value
 - `wait` - wait given amount of time (async)
 - `waitSync` - wait given amount of time (sync)
 - `waitFor` - wait for a condition to be true, checking every given amount of time
+
+### Various
+- `get` - extract a value from a deep object using specified path, optionally with a default value
+- `getMultiple` - same as above, but test multiple paths
+- `set` - set a value in a deep object using specified path
+- `setImmutable` - set a value in a deep object using specified path, but return a new object
+- `isEmpty` - check if given value is empty
+- `throttle` - throttle a function, very configurable
+- `truthy` - is value truthy? (useful for filtering with more correct TypeScript support than `filter(Boolean)`)
 
 Methods will be added as I need them. I am open for suggestions and PRs. See next heading for list of methods that I
 want to add.

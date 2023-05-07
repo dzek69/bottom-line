@@ -27,6 +27,7 @@ export * from "./pick.js";
 export * from "./pull.js";
 export * from "./remove.js";
 export * from "./rethrow.js";
+export * from "./safe.js";
 export * from "./scale.js";
 export * from "./seq.js";
 export * from "./set.js";

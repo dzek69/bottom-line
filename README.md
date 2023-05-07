@@ -66,6 +66,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 ### Type safety
 - `coalesce` - return first non-nullish value
 - `ensureError` - ensure that given value is an error
+- `safe` - runs function and returns its result or default value if function throws an error
 
 ### Flow related
 - `mapAsync` - map an array asynchronously if sync version blocks your event loop for too long

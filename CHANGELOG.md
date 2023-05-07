@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `safe` method
 ### Dev
 - upgraded some jsdocs
+- upgraded deps
 
 ## [1.2.0] - 2023-03-01
 ### Added

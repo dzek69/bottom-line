@@ -1,6 +1,7 @@
 {
     "pages": [
-        { "title": "Introduction", "source": "Introduction.md" }
+        { "name": "Introduction", "source": "Introduction.md" },
+        { "name": "Changelog", "source": "./CHANGELOG.md" }
     ],
     "source": "tutorials"
 }

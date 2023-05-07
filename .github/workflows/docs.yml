@@ -1,0 +1,50 @@
+name: Build docs and push to ezez.dev
+
+on:
+  push:
+    branches: [ master ]
+
+
+env:
+  PROJECT_NAME: utils
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Build documentation
+        run: |
+          VER=$(cat ./package.json | jq -r .version)
+          echo Detected version: $VER
+          if [[ "$VER" == *"+"* ]]; then echo "WIP/+ version detected, skipping"; exit 1; fi
+          yarn
+          yarn docs
+          echo "APP_VERSION=$VER" >> "$GITHUB_ENV"
+          cat $GITHUB_ENV
+
+      - name: Deploy versioned documentation
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DOCS_SERVER_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.DOCS_SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.DOCS_SERVER_USER }}
+          REMOTE_PORT: ${{ secrets.DOCS_SERVER_PORT }}
+          SOURCE: "docs/"
+          TARGET: "/docs/${{ env.PROJECT_NAME }}/${{ env.APP_VERSION }}"
+
+      - name: Deploy latest documentation
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DOCS_SERVER_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.DOCS_SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.DOCS_SERVER_USER }}
+          REMOTE_PORT: ${{ secrets.DOCS_SERVER_PORT }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "docs/"
+          TARGET: "/docs/${{ env.PROJECT_NAME }}/latest"
+

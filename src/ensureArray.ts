@@ -1,5 +1,5 @@
 /**
- * Wraps value in an array until the value is already an array
+ * Wraps value in an array unless the value is already an array
  * @param {*} value - value to be wrapped
  * @returns {Array}
  */

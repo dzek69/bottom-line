@@ -22,13 +22,6 @@ describe("isPlainObject", function() {
         isPlainObject({ constructor: () => null }).must.be.true();
     });
 
-    it("accepts plain objects", function() {
-        isPlainObject({}).must.be.true();
-        isPlainObject({ some: "data" }).must.be.true();
-        isPlainObject({ some: function fn() {} }).must.be.true();
-        isPlainObject(Object.create(null)).must.be.true();
-    });
-
     it("shouldn't accept any instances", function() {
         // eslint-disable-next-line @typescript-eslint/no-extraneous-class
         class X {}

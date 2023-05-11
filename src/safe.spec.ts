@@ -40,6 +40,7 @@ describe("safe", () => {
     });
 
     it("doesn't 'work' with promises", () => {
+        // eslint-disable-next-line @typescript-eslint/require-await
         const result = safe(async () => {
             throw new Error("Boo!!!");
         });

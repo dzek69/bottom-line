@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2023-05-11
+### Added
+- `escapeRegExp` method
+- `replace` method
+- `sortProps` method
+
 ## [1.3.0] - 2023-05-07
 ### Added
 - `safe` method

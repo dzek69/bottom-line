@@ -11,8 +11,8 @@ function safe<T, Y>(fn: () => T, def: Y): T | Y;
  * safe(() => JSON.parse(unknownString), null); // if unknownString is not a valid JSON, null will be returned
  * safe(() => trySomethingComplicated(), defaultValue); // if trySomethingComplicated throws, defaultValue will be returned
  */
-/* eslint-enable max-len */
 function safe<T, Y>(fn: () => T, def?: Y) { // eslint-disable-line func-style
+    /* eslint-enable max-len */
     try {
         return fn();
     }

@@ -35,6 +35,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `capitalize` - capitalize a string, optionally lower casing the rest
 - `isNumericString` - check if given value is a numeric string, features configurable
 - `occurrences` - count occurrences of a substring in a string, optionally allow overlapping
+- `replace` - replace all occurrences of a substring using a map of replacements
 - `stripPrefix` - strip prefix from a string
 - `stripSuffix` - strip suffix from a string
 
@@ -58,14 +59,16 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `merge` - merge two objects shallowly, allowing to remove properties while doing so
 - `omit` - omit properties from an object
 - `pick` - pick some properties from an object
+- `sortProps` - sort object properties by key
 
 ### Date related
 - `ensureDate` - ensure that given value is a Date instance
 - `ensureTimestamp` - ensure that given value is a numeric timestamp
 
-### Type safety
+### Type/data safety
 - `coalesce` - return first non-nullish value
 - `ensureError` - ensure that given value is an error
+- `escapeRegExp` - escape a string to be used in a regular expression
 - `safe` - runs function and returns its result or default value if function throws an error
 
 ### Flow related

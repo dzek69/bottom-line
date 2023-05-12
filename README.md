@@ -44,6 +44,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `scale` - scale given value from old range to new range
 
 ### Array related
+- `compareArrays` - compare two arrays
 - `ensureArray` - ensure that given value is an array
 - `insertSeparator` - insert a separator between every character in an array
 - `last` - get last element of an array
@@ -52,6 +53,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `pull` - remove values from an array (by mutating)
 - `remove` - remove values from an array (by mutating) using predicate function and return removed values
 - `sortBy` - sort an array by given property (create callback function for `Array.prototype.sort`)
+- `unique` - get unique values from an array
 
 ### Object related
 - `isPlainObject` - check if given value is a plain object

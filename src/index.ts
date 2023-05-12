@@ -5,6 +5,7 @@ export * from "./cap.js";
 export * from "./capitalize.js";
 export * from "./coalesce.js";
 export * from "./compareArrays.js";
+export * from "./compareProps.js";
 export * from "./ensureArray.js";
 export * from "./ensureDate.js";
 export * from "./ensureError.js";

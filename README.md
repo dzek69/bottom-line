@@ -56,6 +56,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `unique` - get unique values from an array
 
 ### Object related
+- `compareProps` - compare two objects and return list of different properties
 - `isPlainObject` - check if given value is a plain object
 - `mapValues` - map values of an object
 - `merge` - merge two objects shallowly, allowing to remove properties while doing so

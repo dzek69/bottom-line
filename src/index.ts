@@ -18,6 +18,7 @@ export * from "./isEmpty.js";
 export * from "./isNumericString.js";
 export * from "./isPlainObject.js";
 export * from "./last.js";
+export * from "./later.js";
 export * from "./mapAsync.js";
 export * from "./mapValues.js";
 export * from "./match.js";

@@ -75,6 +75,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 - `safe` - runs function and returns its result or default value if function throws an error
 
 ### Flow related
+- `later` - create a promise you can resolve later, outside of Promise constructor
 - `mapAsync` - map an array asynchronously if sync version blocks your event loop for too long
 - `noop` - do nothing
 - `rethrow` - throw given value

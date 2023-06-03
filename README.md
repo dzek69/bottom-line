@@ -67,6 +67,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 ### Date related
 - `ensureDate` - ensure that given value is a Date instance
 - `ensureTimestamp` - ensure that given value is a numeric timestamp
+- `formatDate` - format a date using a format string, syntax from PHP
 
 ### Type/data safety
 - `coalesce` - return first non-nullish value

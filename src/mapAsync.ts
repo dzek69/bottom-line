@@ -24,7 +24,7 @@ const mapAsync = async <T, Y>(
     const l = context.length;
 
     for (let i = 0; i < l; i++) {
-        const item = context[i];
+        const item = context[i]!;
         // eslint-disable-next-line callback-return
         result.push(callback(item, i, context));
         if (Date.now() - lastWaitMoment >= pauseEvery) {

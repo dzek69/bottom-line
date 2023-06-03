@@ -80,7 +80,7 @@ const setImmutable = (source: Source, path: Path, value: unknown): Source | unkn
     let current: Source | unknown = result;
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;
-        const key = pathParts[i];
+        const key = pathParts[i]!;
         if (isLast) {
             (current as Source)[key] = value;
             return result;

@@ -11,7 +11,7 @@ import { escapeRegExp } from "./escapeRegExp.js";
 const replace = (source: string, replaceMap: Record<string, string>) => {
     /* eslint-enable max-len */
     const regex = new RegExp(Object.keys(replaceMap).map(escapeRegExp).join("|"), "g");
-    return source.replace(regex, (matched) => replaceMap[matched]);
+    return source.replace(regex, (matched) => replaceMap[matched]!);
 };
 
 export {

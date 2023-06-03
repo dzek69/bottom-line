@@ -31,7 +31,7 @@ const DEFAULT = {};
 const getMultiple = (source: Source, defaultValue: unknown, ...paths: (string | string[])[]): unknown => {
     const length = paths.length;
     for (let i = 0; i < length; i++) {
-        const properties = paths[i];
+        const properties = paths[i]!;
         const result = get(source, properties, DEFAULT);
         if (result !== DEFAULT) {
             return result;

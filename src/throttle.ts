@@ -61,7 +61,7 @@ const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line 
         throw new TypeError("`time` must be an array with at least one number.");
     }
 
-    const finalTime = typeof time === "number" ? time : time[time.length - 1];
+    const finalTime = typeof time === "number" ? time : time[time.length - 1]!;
 
     let lastRun = 0,
         timeoutId: ReturnType<typeof setTimeout> | null = null,

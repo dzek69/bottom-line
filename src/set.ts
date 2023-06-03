@@ -39,7 +39,7 @@ const set = (source: Source, path: string | string[], value: unknown): Source | 
     let current: Source | unknown = result;
     for (let i = 0; i < len; i++) {
         const isLast = i === len - 1;
-        const key = pathParts[i];
+        const key = pathParts[i]!;
         if (isLast) {
             (current as Source)[key] = value;
             return result;

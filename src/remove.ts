@@ -12,9 +12,9 @@ const remove = <T>(array: T[], fn: (elem: T, num: number, list: T[]) => boolean)
     const removedValues = [];
 
     for (let counter = 0; counter < len; counter++) {
-        if (fn(array[counter], counter, array)) {
+        if (fn(array[counter]!, counter, array)) {
             idsToRemove.push(counter - idsToRemove.length);
-            removedValues.push(array[counter]);
+            removedValues.push(array[counter]!);
         }
     }
 

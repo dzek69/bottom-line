@@ -42,7 +42,7 @@ const isNumericString = (string: string, options: Options = {}) => { // eslint-d
         return false;
     }
 
-    const expParts = parts[parts.length - 1].split("e");
+    const expParts = parts[parts.length - 1]!.split("e");
 
     if (!options.allowExponents) {
         if (expParts.length > 1) {

@@ -19,6 +19,7 @@ const mostFrequent = <T>(array: T[]): T => {
         }
     });
 
+    // @ts-expect-error - idk if there is a good workaround for this with `noUncheckedIndexedAccess`
     return topValue;
 };
 

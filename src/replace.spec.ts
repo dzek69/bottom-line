@@ -19,4 +19,8 @@ describe("replace", () => {
     it("doesn't break on regexp characters", () => {
         replace("Hello.", { ".": "!" }).must.equal("Hello!");
     });
+
+    it("replaces nothing when empty object given", async () => {
+        replace("Hello.", {}).must.equal("Hello.");
+    });
 });

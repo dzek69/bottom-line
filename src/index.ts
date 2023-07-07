@@ -31,6 +31,7 @@ export * from "./omit.js";
 export * from "./pick.js";
 export * from "./pull.js";
 export * from "./remove.js";
+export * from "./removeCommonProperties.js";
 export * from "./replace.js";
 export * from "./rethrow.js";
 export * from "./safe.js";

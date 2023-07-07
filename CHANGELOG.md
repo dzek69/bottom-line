@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2023-07-07
+### Added
+- `removeCommonProperties` method
+
 ## [1.8.1] - 2023-06-24
 ### Fixed
 - `replace` method replacing everything with bunch of `undefined` when empty map is given

@@ -1,6 +1,9 @@
 /**
  * Sorts the properties of an object alphabetically, ascending or descending.
- * REMEMBER: In theory JS engines do not guarantee the order of object properties. In practice most popular engines do.
+ * It does not mutate the original object.
+ *
+ * REMEMBER: In theory, JS engines do not guarantee the order of object properties.
+ * In practice most of the popular engines do.
  * @param object - source object
  * @param asc - sort ascending?
  * @example sortProps({ b: 2, a: 1, z: 26 }) // { a: 1, b: 2, z: 26 }

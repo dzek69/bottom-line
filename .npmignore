@@ -4,7 +4,6 @@
 
 /.editorconfig
 /.eslintrc.json
-/babel.config.js
 /jest.config.cjs
 /nodemon.json
 /tsconfig.*

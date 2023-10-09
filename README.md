@@ -57,12 +57,15 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 
 ### Object related
 - `compareProps` - compare two objects and return list of different properties
+- `deserialize` - deserialize values serialized with `serialize`
 - `isPlainObject` - check if given value is a plain object
 - `mapValues` - map values of an object
 - `merge` - merge two objects shallowly, allowing to remove properties while doing so
 - `omit` - omit properties from an object
 - `pick` - pick some properties from an object
+- `replaceDeep` - recursively replace all occurrences of a value in an object/array
 - `sortProps` - sort object properties by key
+- `serialize` - like JSON.stringify but any data type is allowed
 
 ### Date related
 - `ensureDate` - ensure that given value is a Date instance

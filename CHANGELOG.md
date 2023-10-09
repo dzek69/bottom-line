@@ -1,7 +1,16 @@
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+The format is based on [EZEZ Chanelog](https://ezez.dev/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [2.0.0] - 2023-10-09
+### Breaking
+- code is compiled to es2020 due to `bigint` usage, if you are not using `serialize` or `deserialize` you can still
+transpile this lib yourself
+### Added
+- `serialize` method
+- `deserialize` method
+- `replaceDeep` method
 
 ## [1.9.0] - 2023-07-07
 ### Added

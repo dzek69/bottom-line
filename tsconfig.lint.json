@@ -1,70 +1,14 @@
 {
+    "extends": [
+        "./tsconfig.json"
+    ],
     "compilerOptions": {
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "allowUmdGlobalAccess": false,
-        "alwaysStrict": true,
-        "baseUrl": null,
-        "checkJs": false,
-        "composite": false,
-        "declaration": true,
-        "declarationMap": true,
-        "downlevelIteration": false,
-        "emitDecoratorMetadata": null,
-        "esModuleInterop": true,
-        "exactOptionalPropertyTypes": true,
-        "experimentalDecorators": null,
-        "forceConsistentCasingInFileNames": true,
-        "importHelpers": true,
-        "incremental": false,
-        "inlineSourceMap": null,
-        "inlineSources": null,
-        "isolatedModules": true,
-        "jsx": "react",
-        "lib": [
-            "es2019",
-            "dom"
-        ],
-        "mapRoot": null,
-        "module": "es2015",
-        "moduleDetection": "auto",
-        "moduleResolution": "node",
-        "moduleSuffixes": [
-            ""
-        ],
         "noEmit": true,
-        "noFallthroughCasesInSwitch": false,
-        "noImplicitAny": true,
-        "noImplicitOverride": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noUncheckedIndexedAccess": true,
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
-        "outDir": "./esm-lint",
-        "outFile": null,
-        "paths": null,
-        "preserveSymlinks": false,
-        "preserveValueImports": false,
-        "removeComments": true,
-        "rootDir": "./src",
-        "rootDirs": null,
-        "skipLibCheck": true,
-        "sourceMap": true,
-        "sourceRoot": null,
-        "strict": true,
-        "strictBindCallApply": true,
-        "strictFunctionTypes": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "target": "es2019",
-        "tsBuildInfoFile": null,
-        "typeRoots": null,
-        "types": null,
-        "useUnknownInCatchVariables": true
+        "outDir": "./esm-lint"
     },
     "include": [
         "*",
         "**/*"
-    ]
+    ],
+    "exclude": []
 }

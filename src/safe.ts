@@ -1,7 +1,6 @@
 function safe<T>(fn: () => T): T | undefined;
 function safe<T, Y>(fn: () => T, def: Y): T | Y;
 
-/* eslint-disable max-len */
 /**
  * Safely execute a function, return its return value or default value if the function throws.
  * @param fn - function to run

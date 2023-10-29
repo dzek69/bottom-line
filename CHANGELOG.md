@@ -1,7 +1,11 @@
 All notable changes to this project will be documented in this file.
 
-The format is based on [EZEZ Chanelog](https://ezez.dev/changelog/)
+The format is based on [EZEZ Changelog](https://ezez.dev/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [2.1.0] - 2023-10-29
+### Added
+- `round` method
 
 ## [2.0.0] - 2023-10-09
 ### Breaking

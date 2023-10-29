@@ -36,6 +36,7 @@ export * from "./removeCommonProperties.js";
 export * from "./replace.js";
 export * from "./replaceDeep.js";
 export * from "./rethrow.js";
+export * from "./round.js";
 export * from "./safe.js";
 export * from "./scale.js";
 export * from "./seq.js";

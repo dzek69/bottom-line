@@ -41,6 +41,7 @@ object, with just some properties copied. Easy, right? Few lines of code? Lodash
 
 ### Number related
 - `cap` - cap a value between lower and upper bound
+- `round` - round a value to given precision
 - `scale` - scale given value from old range to new range
 
 ### Array related

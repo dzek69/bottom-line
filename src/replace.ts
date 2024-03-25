@@ -12,7 +12,6 @@ const replace = (source: string, replaceMap: Record<string, string>) => {
     if (keys.length === 0) {
         return source;
     }
-    /* eslint-enable max-len */
     const regex = new RegExp(keys.map(escapeRegExp).join("|"), "g");
     return source.replace(regex, (matched) => replaceMap[matched]!);
 };

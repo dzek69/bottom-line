@@ -11,7 +11,6 @@ function safe<T, Y>(fn: () => T, def: Y): T | Y;
  * safe(() => trySomethingComplicated(), defaultValue); // if trySomethingComplicated throws, defaultValue will be returned
  */
 function safe<T, Y>(fn: () => T, def?: Y) { // eslint-disable-line func-style
-    /* eslint-enable max-len */
     try {
         return fn();
     }

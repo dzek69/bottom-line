@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2024-03-25
+### Breaking
+- `waitFor` method was upgraded:
+  - now it supports Promises
+  - the check fails only if `undefined`, `null` or `false` is given
+  - function signature is changed (object options)
+  - `maxTries` option is added to have a limit of tries unrelated to time
+  - no wait before the initial check
+### Added
+- `toggle` method
+- `sample` method
+- `samples` method
+- `shuffle` method
+### Dev
+- added `waitFor` unit tests
+- added missing build files to repo (missing since 2.0.0)
+
 ## [2.1.0] - 2023-10-29
 ### Added
 - `round` method

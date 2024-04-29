@@ -1,4 +1,4 @@
-import { replaceDeep } from "./replaceDeep";
+import { replaceDeepByFn } from "./replaceDeepByFn";
 
 class MyClass {
     public value: number;
@@ -8,7 +8,7 @@ class MyClass {
     }
 }
 
-describe("replaceDeep", () => {
+describe("replaceDeepByFn", () => {
     it("should replace given value in a deep object", () => {
         const source = [
             99,
@@ -32,7 +32,7 @@ describe("replaceDeep", () => {
             },
         ];
 
-        must(replaceDeep(source, 100, 200)).eql([
+        must(replaceDeepByFn(source, v => v === 100, () => 200)).eql([
             99,
             200,
             {
@@ -56,41 +56,41 @@ describe("replaceDeep", () => {
     });
 
     it("should leave primitives as-is unless they equal to the search value", () => {
-        must(replaceDeep(100, 200, 300)).equal(100);
-        must(replaceDeep(200, 200, 300)).equal(300);
-        must(replaceDeep("100", 200, 300)).equal("100");
-        // ESLINT BUG:
+        must(replaceDeepByFn(100, v => v === 200, () => 300)).equal(100);
+        must(replaceDeepByFn(200, v => v === 200, () => 300)).equal(300);
+        must(replaceDeepByFn("100", v => v === 200, () => 300)).equal("100");
+        // ESLINT BUG: (see replaceDeep.spec.ts)
         // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-        must(replaceDeep(undefined, 200, 300)).equal(undefined);
-        must(replaceDeep(null, 200, 300)).equal(null);
-        must(replaceDeep(true, 200, 300)).equal(true);
-        must(replaceDeep(666n, 200, 300)).equal(666n);
+        must(replaceDeepByFn(undefined, v => v === 200, () => 300)).equal(undefined);
+        must(replaceDeepByFn(null, v => v === 200, () => 300)).equal(null);
+        must(replaceDeepByFn(true, v => v === 200, () => 300)).equal(true);
+        must(replaceDeepByFn(666n, v => v === 200, () => 300)).equal(666n);
     });
 
     it("should work with nans", async () => {
-        must(replaceDeep({
+        must(replaceDeepByFn({
             a: NaN,
             b: 123,
-        }, NaN, 300)).eql({
+        }, v => Number.isNaN(v), () => 300)).eql({
             a: 300,
             b: 123,
         });
     });
 
     it("should allow to replace nils", async () => {
-        must(replaceDeep(null, null, 300)).equal(300);
+        must(replaceDeepByFn(null, v => v === null, () => 300)).equal(300);
         // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-        must(replaceDeep(undefined, undefined, 300)).equal(300);
+        must(replaceDeepByFn(undefined, v => v === undefined, () => 300)).equal(300);
     });
 
-    it("does not mutate original object", () => {
+    it("does not mutate the original object", () => {
         const source = {
             a: 1,
             b: {
                 c: 2,
             },
         };
-        const result = replaceDeep(source, 2, 3);
+        const result = replaceDeepByFn(source, v => v === 2, () => 3);
         must(result).not.equal(source);
         must(result.b).not.equal(source.b);
         must(result).eql({
@@ -103,20 +103,20 @@ describe("replaceDeep", () => {
 
     it("does not mutate original array", async () => {
         const source = [1, 2, 3, [2, 3]];
-        const result = replaceDeep(source, 2, 4);
+        const result = replaceDeepByFn(source, v => v === 2, () => 4);
         must(result).not.equal(source);
         must(result[3]).not.equal(source[3]);
         must(result).eql([1, 4, 3, [4, 3]]);
     });
 
-    it("mutates original object when enabled", () => {
+    it("mutates the original object when enabled", () => {
         const source = {
             a: 1,
             b: {
                 c: 2,
             },
         };
-        const result = replaceDeep(source, 2, 3, { mutate: true });
+        const result = replaceDeepByFn(source, v => v === 2, () => 3, { mutate: true });
         must(result).equal(source);
         must(result.b).equal(source.b);
         must(result).eql({
@@ -129,7 +129,7 @@ describe("replaceDeep", () => {
 
     it("mutates original array when enabled", async () => {
         const source = [1, 2, 3, [2, 3]];
-        const result = replaceDeep(source, 2, 4, { mutate: true });
+        const result = replaceDeepByFn(source, v => v === 2, () => 4, { mutate: true });
         must(result).equal(source);
         must(result[3]).equal(source[3]);
         must(result).eql([1, 4, 3, [4, 3]]);
@@ -137,14 +137,14 @@ describe("replaceDeep", () => {
 
     it("does not get into instances by default", async () => {
         const source = new MyClass(100);
-        const result = replaceDeep(source, 100, 200);
+        const result = replaceDeepByFn(source, v => v === 100, () => 200);
         must(result).equal(source);
         must(source.value).equal(100);
     });
 
     it("gets into instances when allowed", async () => {
         const source = new MyClass(100);
-        const result = replaceDeep(source, 100, 200, {
+        const result = replaceDeepByFn(source, v => v === 100, () => 200, {
             replaceInstancesProps: true,
             mutate: true,
         });
@@ -154,7 +154,7 @@ describe("replaceDeep", () => {
 
     it("requires `mutate` option if `replaceInstancesProps` is defined", async () => {
         const source = new MyClass(100);
-        must(() => replaceDeep(source, 100, 200, {
+        must(() => replaceDeepByFn(source, v => v === 100, () => 200, {
             replaceInstancesProps: true,
             mutate: false,
         })).throw("`replaceInstancesProps` option requires `mutate` to be enabled");

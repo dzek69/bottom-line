@@ -80,4 +80,46 @@ describe("serialize", () => {
 
         must(serialize(a)).equal(serialize(b));
     });
+
+    it("allows serializing dates and other objects containing .toJSON", async () => {
+        const date = new Date(1714390008941);
+        must(serialize(date, {
+            D: (value) => {
+                if (value instanceof Date) {
+                    return String(value.getTime());
+                }
+                return null;
+            },
+        })).equal(`"D:1714390008941"`);
+    });
+
+    it("should avoid excessive calls to custom serializers", async () => {
+        const customSerializers: CustomSerializers = {
+            p: (value) => {
+                // console.log("Called with", typeof value, value);
+                if (value instanceof Person) {
+                    return value.name;
+                }
+                return null;
+            },
+        };
+
+        const p1 = new Person("John");
+        const spy = jest.spyOn(customSerializers, "p");
+
+        serialize({
+            a: [p1],
+            b: 1,
+            c: {
+                d: true,
+                e: p1,
+            },
+        }, customSerializers);
+        expect(spy).toHaveBeenCalledTimes(4);
+    });
+
+    it("should not crash on unknown instances but serialize as plain object", async () => {
+        const p1 = new Person("John");
+        must(serialize(p1)).equal(`{"name":"s:John"}`);
+    });
 });

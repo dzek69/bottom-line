@@ -1,4 +1,7 @@
 import { sortProps } from "./sortProps.js";
+import { replaceDeepByFn } from "./replaceDeepByFn.js";
+import { isPlainObject } from "./isPlainObject.js";
+import { DataWrapper } from "./utils/utils.js";
 
 type CustomSerializers = {
     [key: string]: (data: unknown) => (string | null);
@@ -33,6 +36,32 @@ type Options = {
  * @param options - options
  */
 const serialize = (data: unknown, customSerializers?: CustomSerializers, options?: Options) => { // eslint-disable-line max-lines-per-function,max-len
+    const sourceData = Object.keys(customSerializers ?? {}).length
+        ? replaceDeepByFn(
+            data,
+            value => {
+                if (["string", "number", "bigint", "undefined", "boolean"].includes(typeof value)) {
+                    return false;
+                }
+                if (value === null || Array.isArray(value)) {
+                    return false;
+                }
+                if (isPlainObject(value)) {
+                    return false;
+                }
+
+                const serializerKeys = Object.keys(customSerializers ?? {});
+                for (const key of serializerKeys) {
+                    const serialized = customSerializers![key]!(value);
+                    if (typeof serialized === "string") {
+                        return true;
+                    }
+                }
+                return false;
+            },
+            value => new DataWrapper(value),
+        )
+        : data;
     const replacer = (_key: string, value: unknown) => { // eslint-disable-line max-statements
         if (typeof value === "string") {
             return `s:${value}`;
@@ -52,11 +81,21 @@ const serialize = (data: unknown, customSerializers?: CustomSerializers, options
         if (value === null) {
             return "l:";
         }
+        if (Array.isArray(value)) {
+            return value as unknown[];
+        }
+        if (isPlainObject(value)) {
+            return value;
+        }
         const serializerKeys = Object.keys(customSerializers ?? {});
         for (const key of serializerKeys) {
-            const serialized = customSerializers![key]!(value);
+            const serialized = customSerializers![key]!(value instanceof DataWrapper ? value.data : value);
             if (typeof serialized === "string") {
                 return `${key}:${serialized}`;
+            }
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            if (serialized !== null) {
+                throw new Error(`Custom serializer for key ${key} returned a non-string value: ${String(serialized)}`);
             }
         }
         if (typeof value === "object") {
@@ -67,35 +106,43 @@ const serialize = (data: unknown, customSerializers?: CustomSerializers, options
     };
 
     if (
-        data == null
-        || typeof data === "string"
-        || typeof data === "number"
-        || typeof data === "bigint"
-        || typeof data === "undefined"
-        || typeof data === "boolean"
-        || Array.isArray(data)
+        sourceData == null
+        || typeof sourceData === "string"
+        || typeof sourceData === "number"
+        || typeof sourceData === "bigint"
+        || typeof sourceData === "undefined"
+        || typeof sourceData === "boolean"
+        || Array.isArray(sourceData)
     ) {
-        return JSON.stringify(data, replacer);
+        return JSON.stringify(sourceData, replacer);
     }
 
-    const serializerKeysGlobal = Object.keys(customSerializers ?? {});
-    for (const key of serializerKeysGlobal) {
-        const serialized = customSerializers![key]!(data);
-        if (typeof serialized === "string") {
-            return `"${key}:${serialized}"`;
+    if (!isPlainObject(sourceData)) {
+        const serializerKeysGlobal = Object.keys(customSerializers ?? {});
+        for (const key of serializerKeysGlobal) {
+            const serialized = customSerializers![key]!(
+                sourceData instanceof DataWrapper ? sourceData.data : sourceData,
+            );
+            if (typeof serialized === "string") {
+                return `"${key}:${serialized}"`;
+            }
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            if (serialized !== null) {
+                throw new Error(`Custom serializer for key ${key} returned a non-string value: ${String(serialized)}`);
+            }
         }
     }
 
-    if (typeof data === "object") {
+    if (typeof sourceData === "object") {
         return JSON.stringify(
             options?.sortProps === false
-                ? data
-                : sortProps(data as Record<string, unknown>),
+                ? sourceData
+                : sortProps(sourceData as Record<string, unknown>),
             replacer,
         );
     }
 
-    throw new Error(`Unsupported data type: ${typeof data}`);
+    throw new Error(`Unsupported data type: ${typeof sourceData}`);
 };
 
 export type { CustomSerializers };

@@ -66,4 +66,16 @@ describe("deserialize", () => {
     it("throws on unknown data type", () => {
         must(() => deserialize(`"v:test"`)).throw("Unsupported data type: v");
     });
+
+    it("supports deserializers with things like Date", async () => {
+        const customSerializers: CustomDeserializers = {
+            D: (value) => {
+                return new Date(Number(value));
+            },
+        };
+
+        const result = deserialize(`"D:1714398481437"`, customSerializers);
+        must(result).be.instanceof(Date);
+        must(result.getTime()).equal(1714398481437);
+    });
 });

@@ -1,7 +1,7 @@
 // TODO verify & maybe fix typings when object is an Array
 
 /**
- * Returns new object with copied given properties from source object.
+ * Returns a new object with given properties copied from a source object.
  *
  * @param {Object} object - source object
  * @param {Array.<string>} props - properties to copy

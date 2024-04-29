@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+### Dev
+- upgraded some jsdocs
+
 ## [3.0.0] - 2024-03-25
 ### Breaking
 - `waitFor` method was upgraded:

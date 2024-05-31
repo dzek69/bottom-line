@@ -67,7 +67,7 @@ const getPathParts = (path: Path) => {
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
-const setImmutable = (source: Source, path: Path, value: unknown): Source | unknown => { // eslint-disable-line max-statements, max-len, @typescript-eslint/no-redundant-type-constituents
+const setImmutable = (source: Source, path: Path, value: unknown): Source | unknown => { // eslint-disable-line max-statements, @typescript-eslint/no-redundant-type-constituents
     const pathParts = getPathParts(path);
     const isValidPath = hasOnlyValidPathParts(pathParts);
     if (!isValidPath) {

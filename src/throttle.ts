@@ -46,7 +46,7 @@ type CanReturnUndefined<F extends (...args: any[]) => any> = (...args: Parameter
  * @param {number | number[]} time - throttle time as number or array of numbers (min 1 element)
  * @param {Opts} options
  */
-const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line max-lines-per-function, @typescript-eslint/no-explicit-any, max-len
+const throttle = <RT, F extends (...args: any[]) => RT>( // eslint-disable-line max-lines-per-function, @typescript-eslint/no-explicit-any
     fn: F, time: number | [number, ...number[]] = 0, options?: Opts,
 ): CanReturnUndefined<F> & Extras => {
     const opts: Required<Opts> = {

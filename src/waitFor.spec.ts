@@ -4,6 +4,7 @@ import must from "must";
 import createSpy from "../test/createSpy";
 
 import { waitFor } from "./waitFor";
+import { wait } from "./wait";
 
 describe("waitFor", () => {
     it("calls function multiple times until it returns truthy value", async () => {
@@ -53,14 +54,18 @@ describe("waitFor", () => {
     });
 
     it("time outs after given time", async () => {
+        const spy = createSpy(() => false);
         // eslint-disable-next-line @typescript-eslint/await-thenable
-        await must(waitFor(() => null, {
+        await must(waitFor(spy, {
             interval: 40,
             timeout: 300,
         })).reject.to.instanceOf(Error);
+        const calls = spy.__spy.calls.length;
+        await wait(100);
+        must(spy.__spy.calls.length).equal(calls);
     });
 
-    it("time outs after given amout of retries", async () => {
+    it("time outs after given count of retries", async () => {
         const spy = createSpy(() => false);
 
         // eslint-disable-next-line @typescript-eslint/await-thenable

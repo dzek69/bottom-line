@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 - (nothing yet)
 
+## [4.1.0] - 2024-05-31
+### Fixed
+- `sample` adds `undefined` to the result type unless the input is a tuple
+- `merge` return type was a basic intersection, which is not a correct way to represent merging
+- `waitFor` will reject but call the callback indefinitely if timeout is set without `maxRetries`
+### Added
+- `memoize` method
+### Changed
+- every regexp now uses `u` flag, which could positively affect these functions: escapeRegExp, formatDate and isNumericString
+- small docs improvements
+
 ## [4.0.0] - 2024-05-16
 ### Breaking
 - `replaceDeep` will not mutate anything by default anymore — previously it was wrongly documented as always mutating,

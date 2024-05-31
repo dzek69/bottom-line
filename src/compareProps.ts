@@ -1,13 +1,20 @@
 import { unique } from "./unique.js";
 
+/**
+ * Options for `compareProps` function.
+ */
 interface ComparePropsOptions {
+    /**
+     * If `true`, missing properties in the first object will be considered as equal to explicit `undefined` properties
+     * in the second.
+     */
     missingEqualsUndefined?: boolean;
 }
 
 /**
  * Compare two objects and return an array of the properties that are different.
- * By default, if first object doesn't have a property at all and second object has it defined as `undefined` it will be
- * considered as a difference. To change this behavior set `missingEqualsUndefined` option to `true`.
+ * By default, if the first object doesn't have a property at all and the second object has it defined as `undefined`
+ * this will be considered as a difference. To change this behavior, set `missingEqualsUndefined` option to `true`.
  * @param a - first object
  * @param b - second object
  * @param options - options

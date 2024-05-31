@@ -28,8 +28,10 @@ const removeCommonProperties = (source: Obj, target1: Obj, ...targetN: Obj[]) =>
     for (const key of keys) {
         const allTheSame = targets.every((target) => JSON.stringify(target[key]) === JSON.stringify(source[key]));
         if (allTheSame) {
-            // eslint-disable-next-line no-param-reassign,@typescript-eslint/no-dynamic-delete
-            targets.forEach((target) => delete target[key]);
+            targets.forEach((target) => {
+                // eslint-disable-next-line no-param-reassign,@typescript-eslint/no-dynamic-delete
+                delete target[key];
+            });
         }
     }
 };

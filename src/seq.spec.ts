@@ -119,17 +119,20 @@ describe("seq", () => {
         const list = [
             () => {
                 firstCalled = true;
-                // eslint-disable-next-line prefer-promise-reject-errors
+
+                // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
                 return Promise.reject(1);
             },
             () => {
                 secondCalled = true;
-                // eslint-disable-next-line prefer-promise-reject-errors
+
+                // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
                 return Promise.reject(2);
             },
             () => {
                 thirdCalled = true;
-                // eslint-disable-next-line prefer-promise-reject-errors
+
+                // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
                 return Promise.reject(3);
             },
         ];

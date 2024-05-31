@@ -1,5 +1,3 @@
-const json = require("./pagesconfig.json");
-
 module.exports = {
-    pluginPages: json,
-};
+    projectDocuments: ["./CHANGELOG.md"]
+}

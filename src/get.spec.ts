@@ -55,6 +55,7 @@ describe("get", () => {
 
     it("doesn't parse string as js code, behaves NOT like lodash", () => {
         // Lodash intention-guessing example, inconsistency detected
+        // eslint-disable-next-line @typescript-eslint/no-shadow
         const name = get(testObject, "product[name]");
         (name === undefined).must.be.true();
 

@@ -14,10 +14,10 @@ const NOT_FOUND = -1;
  * @param {object} [options] - Options object
  * @param {boolean} [options.allowFloats=false] - Allow floats
  * @param {boolean} [options.allowExponents=false] - Allow exponents
- * @param {boolean} [options.allowInfinity=false] - Allow Initity and -Infinity (casing matters)
+ * @param {boolean} [options.allowInfinity=false] - Allow Infinity and -Infinity (casing matters)
  * @param {boolean} [options.allowNaN=false] - Allow NaN (casing matters)
  */
-const isNumericString = (string: string, options: Options = {}) => { // eslint-disable-line max-statements, max-lines-per-function, max-len
+const isNumericString = (string: string, options: Options = {}) => { // eslint-disable-line max-statements, max-lines-per-function
     if (typeof string !== "string") {
         throw new TypeError("Expected a string");
     }
@@ -82,7 +82,7 @@ const isNumericString = (string: string, options: Options = {}) => { // eslint-d
         }
     }
 
-    return Boolean(/^[\de.+-]+$/.exec(normalized));
+    return Boolean(/^[\de.+-]+$/u.exec(normalized));
 };
 
 export {

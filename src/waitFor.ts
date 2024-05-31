@@ -77,7 +77,7 @@ const waitFor = <T>(fn: () => MaybePromise<T>, options: Options = defaultOptions
                         return;
                     }
 
-                    setTimeout(() => {
+                    intervalTimer = setTimeout(() => {
                         tryFn().catch(noop);
                     }, options.interval);
                 }

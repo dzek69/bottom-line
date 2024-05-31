@@ -25,6 +25,7 @@ describe("sample", () => {
 
     it("should work with 0 items array", async () => {
         const array: never[] = [];
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
         const item = sample(array);
         must(item).equal(undefined);
     });

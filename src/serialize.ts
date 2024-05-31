@@ -35,7 +35,7 @@ type Options = {
  * @param customSerializers - an object with custom serializers
  * @param options - options
  */
-const serialize = (data: unknown, customSerializers?: CustomSerializers, options?: Options) => { // eslint-disable-line max-lines-per-function,max-len
+const serialize = (data: unknown, customSerializers?: CustomSerializers, options?: Options) => { // eslint-disable-line max-lines-per-function
     const sourceData = Object.keys(customSerializers ?? {}).length
         ? replaceDeepByFn(
             data,

@@ -12,7 +12,7 @@ const replace = (source: string, replaceMap: Record<string, string>) => {
     if (keys.length === 0) {
         return source;
     }
-    const regex = new RegExp(keys.map(escapeRegExp).join("|"), "g");
+    const regex = new RegExp(keys.map(escapeRegExp).join("|"), "gu");
     return source.replace(regex, (matched) => replaceMap[matched]!);
 };
 

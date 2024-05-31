@@ -8,7 +8,7 @@
  * @param elementsToPick - number of elements to pick
  * @param allowShuffle - if true, it will shuffle the values if elementsToPick is greater or equal to array length instead of returning the original array
  */
-const samples = <T>(array: T[], elementsToPick: number, allowShuffle = false): T[] => { // eslint-disable-line max-statements,max-len
+const samples = <T>(array: T[], elementsToPick: number, allowShuffle = false): T[] => { // eslint-disable-line max-statements
     if (elementsToPick < 0) {
         throw new Error("elementsToPick must be a positive number");
     }

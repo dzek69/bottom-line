@@ -18,7 +18,7 @@ const remove = <T>(array: T[], fn: (elem: T, num: number, list: T[]) => boolean)
         }
     }
 
-    idsToRemove.forEach(id => array.splice(id, 1));
+    idsToRemove.forEach(id => { array.splice(id, 1); });
 
     return removedValues;
 };

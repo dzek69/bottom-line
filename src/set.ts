@@ -30,7 +30,7 @@ const isObject = (value: unknown) => (typeof value === "object" || typeof value 
  * { "items": { "0": value }}
  * @returns {Object} - given object or new object if source was primitive
  */
-const set = (source: Source, path: string | string[], value: unknown): Source | unknown => { // eslint-disable-line @typescript-eslint/no-redundant-type-constituents,max-len
+const set = (source: Source, path: string | string[], value: unknown): Source | unknown => { // eslint-disable-line @typescript-eslint/no-redundant-type-constituents
     const pathParts = typeof path === "string" ? path.split(".") : path;
     const len = pathParts.length;
 

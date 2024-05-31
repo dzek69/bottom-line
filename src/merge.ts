@@ -1,19 +1,37 @@
 /**
  * Special value that can be set as a value in an object.
- * If this value is merged with previous value - the property in a final object will be removed;
+ * If this value is merged with the previous value, the property in a final object will be removed;
  * @see {@link merge}
  */
 const UNSET = typeof Symbol !== "undefined" ? Symbol("UNSET") : {};
 
+/**
+ * Merges two objects into one. If the same property is present in both objects, the value from the second object is
+ * used.
+ */
+type MergeTwo<T, U> = {
+    [K in keyof T | keyof U]: K extends keyof U
+        ? U[K]
+        : K extends keyof T
+            ? T[K]
+            : never;
+};
+
 interface Merge {
     <A>(a: A): A;
-    <A, B>(a: A, b: B): A & B;
-    <A, B, C>(a: A, b: B, c: C): A & B & C;
-    <A, B, C, D>(a: A, b: B, c: C, d: D): A & B & C & D;
-    <A, B, C, D, E>(a: A, b: B, c: C, d: D, e: E): A & B & C & D & E;
-    <A, B, C, D, E, F>(a: A, b: B, c: C, d: D, e: E, f: F): A & B & C & D & E & F;
-    <A, B, C, D, E, F, G>(a: A, b: B, c: C, d: D, e: E, f: F, g: G): A & B & C & D & E & F & G;
-    <A, B, C, D, E, F, G, H>(a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H): A & B & C & D & E & F & G & H;
+    <A, B>(a: A, b: B): MergeTwo<A, B>;
+    <A, B, C>(a: A, b: B, c: C): MergeTwo<MergeTwo<A, B>, C>;
+    <A, B, C, D>(a: A, b: B, c: C, d: D): MergeTwo<MergeTwo<MergeTwo<A, B>, C>, D>;
+    <A, B, C, D, E>(a: A, b: B, c: C, d: D, e: E): MergeTwo<MergeTwo<MergeTwo<MergeTwo<A, B>, C>, D>, E>;
+    <A, B, C, D, E, F>(a: A, b: B, c: C, d: D, e: E, f: F): MergeTwo<
+        MergeTwo<MergeTwo<MergeTwo<MergeTwo<A, B>, C>, D>, E>, F
+    >;
+    <A, B, C, D, E, F, G>(a: A, b: B, c: C, d: D, e: E, f: F, g: G): MergeTwo<
+        MergeTwo<MergeTwo<MergeTwo<MergeTwo<MergeTwo<A, B>, C>, D>, E>, F>, G
+    >;
+    <A, B, C, D, E, F, G, H>(a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H): MergeTwo<
+        MergeTwo<MergeTwo<MergeTwo<MergeTwo<MergeTwo<MergeTwo<A, B>, C>, D>, E>, F>, G>, H
+    >;
     <A, B extends object>(a: A, ...args: B[]): unknown;
 }
 
@@ -55,4 +73,8 @@ const merge: Merge = <MergeCandidate extends object>(...args: MergeCandidate[]) 
 export {
     merge,
     UNSET as mergeUNSET,
+};
+
+export type {
+    MergeTwo,
 };

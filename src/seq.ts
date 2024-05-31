@@ -38,7 +38,7 @@ const run = <T>(list: Fn<T>[], earlyBreaker?: EarlyBreaker): Promise<T> => {
         const errors: Error[] = [];
 
         const doTry = function(error?: Error) {
-            if (error !== undefined && earlyBreaker && earlyBreaker(error)) {
+            if (error !== undefined && earlyBreaker?.(error)) {
                 reject(error);
                 return;
             }

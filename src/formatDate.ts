@@ -9,9 +9,9 @@ import { ensureDate } from "./ensureDate.js";
  * Important: this is work in progress. All locale-based values are not supported yet. Formats that heavily depend on
  * locale won't ever be supported.
  */
-const formatDate = (date: Date | number, format: string, locale = "en-US"): string => { // eslint-disable-line max-lines-per-function, max-len
+const formatDate = (date: Date | number, format: string, locale = "en-US"): string => { // eslint-disable-line max-lines-per-function
     const d = ensureDate(date);
-    return format.replace(/%([%a-zA-Z])/g, (_, c) => {
+    return format.replace(/%([%a-zA-Z])/gu, (_, c) => {
         switch (c) {
             case "%": return "%";
             // Day
